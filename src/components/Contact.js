@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Track = (props) => {
+function Contact() {
   return (
-    <div className="track">
-      The title is: {props.title}
+    <div className="contact">
+        Contact   
     </div>
   );
 }
 
-export default Track;
+export default Contact;

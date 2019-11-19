@@ -13,3 +13,19 @@ a{
   color: #333;
   text-decoration: none;
 }
+
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  font-size: 2em;
+  list-style-type: none;
+  padding: 0.5em;
+  border: 1px solid gray;
+}
+
+h1 {
+  font-size: 10em;
+}

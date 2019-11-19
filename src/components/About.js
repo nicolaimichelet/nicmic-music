@@ -1,10 +1,11 @@
 import React from 'react';
 
-const About = (props) => {
+function About() {
   return (
     <div className="about">
-      
+        About
     </div>
+    
   );
 }
 

@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Track = (props) => {
+function Music() {
   return (
-    <div className="track">
-      The title is: {props.title}
+    <div className="music">
+        Music   
     </div>
   );
 }
 
-export default Track;
+export default Music;
