@@ -12,17 +12,16 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>nicmic</title>
+        <title>nicmic music</title>
         <meta name="description" content="nicmic music" />
         <link rel="icon" href="nicmic_text_black.svg" />
       </Head>
 
       <main className="bg-gradient-to-b from-gray-700 via-gray-900 to-black w-screen h-screen flex flex-1 flex-col items-center justify-center px-20 text-center">
-          <div className=''>
+          <div className='mb-8'>
             <img src="./n_logo_white.svg"></img>
           </div>
           <CountdownTimer targetDate={dateTimeAfterThreeDays} />
-
       </main>
 
 
