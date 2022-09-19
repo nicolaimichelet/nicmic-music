@@ -5,22 +5,25 @@ import { useCountdown } from '../hooks/useCountdown';
 const ExpiredNotice = () => {
   return (
     <div className="expired-notice">
-      <span>Released</span>
-      <p>Please select a future date and time.</p>
+      <span className='text-white'></span>
+      <p></p>
     </div>
   );
 };
 
 const ShowCounter = ({ days, hours, minutes, seconds }) => {
   return (
-    <div className="show-counter flex text-white"> 
-        <DateTimeDisplay value={days} isDanger={days <= 3} />
-        <p className='mr-4'>:</p>
-        <DateTimeDisplay value={hours} isDanger={false} />
-        <p className='mr-4'>:</p>
-        <DateTimeDisplay value={minutes} isDanger={false} />
-        <p className='mr-4'>:</p>
-        <DateTimeDisplay value={seconds} isDanger={false} />
+    <div>
+      <p className='font-medium text-white'>Next release in</p>
+        <div className="flex text-white">
+          <DateTimeDisplay value={days} isDanger={days <= 3} />
+          <p className='mr-4 self-center'>:</p>
+          <DateTimeDisplay value={hours} isDanger={false} />
+          <p className='mr-4 self-center'>:</p>
+          <DateTimeDisplay value={minutes} isDanger={false} />
+          <p className='mr-4 self-center'>:</p>
+          <DateTimeDisplay value={seconds} isDanger={false} />
+        </div>
     </div>
   );
 };
