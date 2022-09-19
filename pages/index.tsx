@@ -39,13 +39,13 @@ const Home: NextPage = () => {
         </div>
       </main>
       <footer className='bg-slate-700 flex items-center justify-center text-center px-8 ht-20 md:-mt-16 md:h-16'>
-        <div className='flex w-full'>
+        <div className='flex w-full justify-center'>
           <div className='flex'>
             <Link href="https://open.spotify.com/artist/1ahjhkpk4VmdiQ7dNWYLeR"><img className='cursor-pointer px-4 hover:fill-slate-500' src='spotify.svg'></img></Link>
             <Link href="https://music.apple.com/us/artist/nicmic/1479419475"><img className='cursor-pointer px-4' src='apple-music.svg'></img></Link>
             <Link href="https://soundcloud.com/nicmicmusic"><img className='cursor-pointer px-4' src='soundcloud.svg'></img></Link>
           </div>
-          <img className='mr-0 fixed right-4' width="44px" height="44px" src='./nicmic_text_white.svg' />
+          <img className='mr-0 ml-4 md:fixed right-4' width="44px" height="44px" src='./nicmic_text_white.svg' />
         </div>
       </footer>
     </div>
