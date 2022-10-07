@@ -8,14 +8,14 @@ const NicMicLogo = ({ twClassName = "h-64" }: { twClassName?: string }) => (
         <path
             d="M87.7073 245.073C87.7073 115.073 141 -30.5 174 31.5"
             stroke="white"
-            stroke-width="4.5"
-            stroke-linecap="round"
+            strokeWidth="4.5"
+            strokeLinecap="round"
         />
         <path
             d="M87.7073 251.073L77.5 67.5C77.5 130.5 -21.5 214.5 15.5 147.5"
             stroke="white"
-            stroke-width="4.5"
-            stroke-linecap="round"
+            strokeWidth="4.5"
+            strokeLinecap="round"
         />
     </svg>
 );

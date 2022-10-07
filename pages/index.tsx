@@ -30,6 +30,16 @@ const Home: NextPage = () => {
                 <CountdownTimerComponent targetDate={RELEASE_DATE} />
 
                 <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 px-4 mt-2 md:mt-20 overflow-auto mb-4">
+                    <div className="w-full">
+                        <iframe
+                            src="https://open.spotify.com/embed/track/1aDO0637uCgxQBcfKJNR0w?utm_source=generator"
+                            width="100%"
+                            height="80"
+                            frameBorder="0"
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"
+                        ></iframe>
+                    </div>
                     <div className="w-full min-w-[200px]">
                         <iframe
                             src="https://open.spotify.com/embed/track/2WamNKZ96oCooQzJgkDowd?utm_source=generator"
