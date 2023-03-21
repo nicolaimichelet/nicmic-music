@@ -3,92 +3,134 @@
 @tailwind utilities;
 
 @layer base {
-
     .light-gradient {
-        background: linear-gradient(180deg, #ffbe86, #ffb947, #86bfcb, #ffb947, #ffbe86);
+        background: linear-gradient(
+            180deg,
+            #86bfcb,
+            #596d97,
+            #fae8eb,
+            #ffb947,
+            #ef8354
+        );
         background-size: 1000% 1000%;
-    
+
         -webkit-animation: light-gradient 32s ease infinite;
         -moz-animation: light-gradient 32s ease infinite;
         animation: light-gradient 32s ease infinite;
     }
-    
+
     @-webkit-keyframes light-gradient {
-        0%{background-position:49% 0%}
-        50%{background-position:52% 100%}
-        100%{background-position:49% 0%}
+        0% {
+            background-position: 49% 0%;
+        }
+        50% {
+            background-position: 52% 100%;
+        }
+        100% {
+            background-position: 49% 0%;
+        }
     }
     @-moz-keyframes light-gradient {
-        0%{background-position:49% 0%}
-        50%{background-position:52% 100%}
-        100%{background-position:49% 0%}
+        0% {
+            background-position: 49% 0%;
+        }
+        50% {
+            background-position: 52% 100%;
+        }
+        100% {
+            background-position: 49% 0%;
+        }
     }
     @keyframes light-gradient {
-        0%{background-position:49% 0%}
-        50%{background-position:52% 100%}
-        100%{background-position:49% 0%}
+        0% {
+            background-position: 49% 0%;
+        }
+        50% {
+            background-position: 52% 100%;
+        }
+        100% {
+            background-position: 49% 0%;
+        }
     }
-    
+
     .dark-gradient {
-        background: linear-gradient(180deg, #111827, #08415c, #596d97, #08415c, #072f40, #111827);
+        background: linear-gradient(
+            180deg,
+            #111827,
+            #08415c,
+            #596d97,
+            #08415c,
+            #072f40,
+            #111827
+        );
         background-size: 1200% 1200%;
-    
+
         -webkit-animation: dark-gradient 43s ease infinite;
         -moz-animation: dark-gradient 43s ease infinite;
         animation: dark-gradient 43s ease infinite;
     }
-    
+
     @-webkit-keyframes dark-gradient {
-        0%{background-position:0% 18%}
-        50%{background-position:100% 83%}
-        100%{background-position:0% 18%}
+        0% {
+            background-position: 0% 18%;
+        }
+        50% {
+            background-position: 100% 83%;
+        }
+        100% {
+            background-position: 0% 18%;
+        }
     }
     @-moz-keyframes dark-gradient {
-        0%{background-position:0% 18%}
-        50%{background-position:100% 83%}
-        100%{background-position:0% 18%}
+        0% {
+            background-position: 0% 18%;
+        }
+        50% {
+            background-position: 100% 83%;
+        }
+        100% {
+            background-position: 0% 18%;
+        }
     }
     @keyframes dark-gradient {
-        0%{background-position:0% 18%}
-        50%{background-position:100% 83%}
-        100%{background-position:0% 18%}
+        0% {
+            background-position: 0% 18%;
+        }
+        50% {
+            background-position: 100% 83%;
+        }
+        100% {
+            background-position: 0% 18%;
+        }
     }
 
     #blob {
-    background-color: white;
-    height: 24vmax;
-    aspect-ratio: 1;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
-    border-radius: 50%;
-    background: linear-gradient(to right, #FFB947, #F0EFF4);
-    animation: rotate 20s infinite;
-    opacity: 0.8;
-    filter: blur(200px);
-
-    }
-
-    #blur {
-        height: 100%;
-        width: 100%;
+        background-color: white;
+        height: 24vmax;
+        aspect-ratio: 1;
         position: absolute;
-        z-index: 2;
-      }
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        border-radius: 50%;
+        background: linear-gradient(to right, #f0eff4, #fae8eb);
+        animation: rotate 20s infinite;
+        opacity: 0.6;
+        filter: blur(200px);
+        overflow: hidden;
+    }
 
     @keyframes rotate {
         from {
-          rotate: 0deg;
+            rotate: 0deg;
         }
-        
-        50% {
-          scale: 1 1.5;
-        }
-        
-        to {
-          rotate: 360deg;
-        }
-      }
-}
 
+        50% {
+            scale: 1 1.5;
+        }
+
+        to {
+            rotate: 360deg;
+        }
+    }
+}
