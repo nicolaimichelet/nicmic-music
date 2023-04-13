@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+    .html {
+        overflow: hidden;
+    }
     .light-gradient {
         background: linear-gradient(
             180deg,
@@ -106,18 +109,25 @@
 
     #blob {
         background-color: white;
-        height: 24vmax;
-        aspect-ratio: 1;
+        height: 10vmax;
+        width: 14vmax;
         position: absolute;
         left: 50%;
         top: 50%;
         translate: -50% -50%;
         border-radius: 50%;
-        background: linear-gradient(to right, #f0eff4, #fae8eb);
         animation: rotate 20s infinite;
-        opacity: 0.6;
-        filter: blur(200px);
+        opacity: 0.8;
         overflow: hidden;
+        filter: blur(75px);
+    }
+
+    .blob-background-on-dark-theme {
+        background: linear-gradient(to right, #f0eff4, #fae8eb);
+    }
+
+    .blob-background-on-light-theme {
+        background: linear-gradient(to right, #000, #111827);
     }
 
     @keyframes rotate {

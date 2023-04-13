@@ -1,30 +1,36 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from 'react'
 
-export default function CustomBlobCursor() {
-    const cursorRef = useRef(null);
+export default function CustomBlobCursor(systemTheme) {
+    const cursorRef = useRef(null)
+    const [shouldShowComponent, setShouldShowComponent] = useState(true)
+
     useEffect(() => {
-        if (cursorRef.current == null || cursorRef == null) return;
-        document.addEventListener("mousemove", (e) => {
-            if (cursorRef.current == null) return;
-            cursorRef.current.setAttribute(
-                "style",
-                "top: " + e.pageY + "px; left: " + e.pageX + "px;"
-            );
-        });
+        function handleResize() {
+            const shouldShow = window.innerWidth >= 768
+            setShouldShowComponent(shouldShow)
+        }
+        if (cursorRef.current == null || cursorRef == null) return
+        window.onpointermove = (event) => {
+            const { clientX, clientY } = event
 
-        document.addEventListener("click", () => {
-            if (cursorRef.current == null) return;
-            cursorRef.current.classList.add("expand");
-            setTimeout(() => {
-                if (cursorRef.current == null) return;
-                cursorRef.current.classList.remove("expand");
-            }, 500);
-        });
-    }, []);
+            blob.animate(
+                {
+                    left: `${clientX}px`,
+                    top: `${clientY}px`,
+                },
+                { duration: 3000, fill: 'forwards' }
+            )
+        }
+        handleResize()
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
-    return (
-        <div>
-            <div id="blob" className="blob" ref={cursorRef}></div>
-        </div>
-    );
+    return shouldShowComponent ? (
+        <div
+            className="blob-background-on-light-theme dark:blob-background-on-dark-theme"
+            id="blob"
+            ref={cursorRef}
+        ></div>
+    ) : null
 }

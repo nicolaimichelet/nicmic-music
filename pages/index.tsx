@@ -1,53 +1,93 @@
-import type { NextPage } from "next";
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import Link from "next/link";
-import NicMicLogo from "../components/NicMicLogo";
-import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
-import { MoonIcon, SunIcon } from "@heroicons/react/24/solid";
-import CustomBlobCursor from "../components/Cursor";
-import SongCard from "../components/SongCard";
+import type { NextPage } from 'next'
+import dynamic from 'next/dynamic'
+import Head from 'next/head'
+import Link from 'next/link'
+import NicMicLogo from '../components/NicMicLogo'
+import { useTheme } from 'next-themes'
+import { useState, useEffect } from 'react'
+import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
+import CustomBlobCursor from '../components/Cursor'
+import CardStack from '../components/CardStack'
+import PayPalButtonNicmic from '../components/PayPalButtonNicmic'
+import Image from 'next/image'
 
 const Home: NextPage = () => {
-    const RELEASE_DATE = new Date("2022-10-07");
+    const RELEASE_DATE = new Date('2022-10-07')
+
+    const cards = [
+        {
+            name: 'dont forget me',
+            source: '/donotforgetme.png',
+            alt: 'looking out an airplane window on the sunset',
+            description: '',
+        },
+        {
+            name: 'flying to the moon',
+            source: '/flyingtomoon.png',
+            alt: 'moon in the horizone and a girl swinging from a large tree',
+            description: '',
+        },
+        {
+            name: 'what do i do',
+            source: '/whatdoido.png',
+            alt: 'silhouette of woman gazing out on the blue and red horizon',
+            description: '',
+        },
+        {
+            name: 'and so have you',
+            source: '/andsohaveyou.png',
+            alt: 'looking out an airplane window on the sunset',
+            description: '',
+        },
+        {
+            name: 'etude pour deux',
+            source: '/etude.png',
+            alt: 'looking out an airplane window on the sunset',
+            description: '',
+        },
+    ]
 
     const CountdownTimerComponent = dynamic(
-        () => import("../components/countdownTimer"),
+        () => import('../components/countdownTimer'),
         { ssr: false }
-    );
+    )
 
-    const { systemTheme, theme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState(false);
+    const { systemTheme, theme, setTheme } = useTheme()
+    const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
-        setMounted(true);
-    }, []);
+        setMounted(true)
+    }, [])
 
     const renderThemeChanger = () => {
-        if (!mounted) return null;
-        const currentTheme = theme === "system" ? systemTheme : theme;
-        if (currentTheme === "dark") {
+        if (!mounted) return null
+        const currentTheme = theme === 'system' ? systemTheme : theme
+        if (currentTheme === 'dark') {
             return (
                 <SunIcon
-                    className="w-7 h-7"
+                    className="w-7 h-7 hover:fill-yellow hover:scale-125"
                     role="button"
-                    onClick={() => setTheme("light")}
+                    onClick={() => setTheme('light')}
                 />
-            );
+            )
         } else {
             return (
                 <MoonIcon
-                    className="w-7 h-7"
+                    className="w-7 h-7 hover:fill-black hover:scale-125"
+                    fill="#FFFFFF"
                     role="button"
-                    onClick={() => setTheme("dark")}
+                    onClick={() => setTheme('dark')}
                 />
-            );
+            )
         }
-    };
+    }
+
+    const onPaymentSuccess = (payment: any) => {
+        console.log('Payment successful', payment)
+    }
 
     return (
-        <div>
+        <div className="overflow-hidden">
             <Head>
                 <title>nicmic music</title>
                 <meta
@@ -56,13 +96,14 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="nicmic_text_black.svg" />
             </Head>
-            <CustomBlobCursor />
+            <CustomBlobCursor systemTheme />
             <main className="light-gradient dark:dark-gradient overflow-hidden w-screen h-screen flex flex-col items-center pb-16 justify-center px-4 md:px-20 text-center">
-                <div className="flex mb-8 items-center justify-center text-center">
+                <div className="flex mb-8 items-center justify-center text-center z-10">
+                    <div className="w-[92px] h-[92px]"></div>
                     <Link href="https://open.spotify.com/artist/1ahjhkpk4VmdiQ7dNWYLeR">
                         <svg
-                            className="m-4 cursor-pointer hover:fill-green-400 hover:transition hover:ease-in-out"
-                            fill="#FFFFFF"
+                            className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-dark-blue hover:transition hover:ease-in-out"
+                            fill="#ffffff"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 50 50"
                             width="32px"
@@ -73,7 +114,7 @@ const Home: NextPage = () => {
                     </Link>
                     <Link href="https://music.apple.com/us/artist/nicmic/1479419475">
                         <svg
-                            className="m-4 cursor-pointer hover:fill-red-400 hover:transition hover:ease-in-out"
+                            className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-dark-blue hover:transition hover:ease-in-out"
                             fill="#FFFFFF"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 50 50"
@@ -84,80 +125,83 @@ const Home: NextPage = () => {
                         </svg>
                     </Link>
                     <NicMicLogo twClassName="w-20 md:w-36" />
-                    <Link href="https://soundcloud.com/nicmicmusic">
+                    <Link href="https://www.instagram.com/nicmicmusic/">
                         <svg
-                            className="m-4 cursor-pointer hover:fill-orange-400 hover:transition hover:ease-in-out"
+                            className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-dark-blue hover:transition hover:ease-in-out"
+                            fill="#FFFFFF"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 25 25"
+                            width="32px"
+                            height="32px"
+                        >
+                            <path d="M 8 3 C 5.243 3 3 5.243 3 8 L 3 16 C 3 18.757 5.243 21 8 21 L 16 21 C 18.757 21 21 18.757 21 16 L 21 8 C 21 5.243 18.757 3 16 3 L 8 3 z M 8 5 L 16 5 C 17.654 5 19 6.346 19 8 L 19 16 C 19 17.654 17.654 19 16 19 L 8 19 C 6.346 19 5 17.654 5 16 L 5 8 C 5 6.346 6.346 5 8 5 z M 17 6 A 1 1 0 0 0 16 7 A 1 1 0 0 0 17 8 A 1 1 0 0 0 18 7 A 1 1 0 0 0 17 6 z M 12 7 C 9.243 7 7 9.243 7 12 C 7 14.757 9.243 17 12 17 C 14.757 17 17 14.757 17 12 C 17 9.243 14.757 7 12 7 z M 12 9 C 13.654 9 15 10.346 15 12 C 15 13.654 13.654 15 12 15 C 10.346 15 9 13.654 9 12 C 9 10.346 10.346 9 12 9 z" />
+                        </svg>
+                    </Link>
+                    <Link
+                        href="https://www.youtube.com/c/nicmicmusic"
+                        title="Youtube"
+                    >
+                        <svg
+                            className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue hover:transition dark:hover:fill-dark-blue hover:ease-in-out"
                             fill="#FFFFFF"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 50 50"
                             width="32px"
                             height="32px"
                         >
-                            <path d="M3 34.7c.6.399 1.3.8 2 1V22.3c-.7.2-1.4.5-2 1V34.7zM14 16.5c-.7.3-1.4.6-2 1V36h2V16.5zM8 36V22.1C7.7 22 7.3 22 7 22s-.7 0-1 .1v13.8C6.3 36 6.7 36 7 36H8zM2 24.1c-1.2 1.3-2 3-2 4.9s.8 3.6 2 4.9V24.1zM20 16.5c-.6-.2-1.3-.4-2-.5v20h2V16.5zM9 20.9V36h2V18.3C10.2 19 9.5 19.9 9 20.9zM17 16c-.7 0-1.4.1-2 .2V36h2V16z" />
-                            <g>
-                                <path d="M42.5,21c-0.5,0-1,0.1-1.5,0.2C40.5,15.5,35.8,11,30,11c-3.6,0-7,1.8-9,4.7V36h21.5c4.1,0,7.5-3.4,7.5-7.5C50,24.4,46.6,21,42.5,21z" />
-                            </g>
+                            <path d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z" />{' '}
                         </svg>
                     </Link>
-                    <Link href="https://soundcloud.com/nicmicmusic">
-                        <svg
-                            className="m-4 cursor-pointer hover:fill-orange-400 hover:transition hover:ease-in-out"
-                            fill="#FFFFFF"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 50 50"
-                            width="32px"
-                            height="32px"
-                        >
-                            <path d="M3 34.7c.6.399 1.3.8 2 1V22.3c-.7.2-1.4.5-2 1V34.7zM14 16.5c-.7.3-1.4.6-2 1V36h2V16.5zM8 36V22.1C7.7 22 7.3 22 7 22s-.7 0-1 .1v13.8C6.3 36 6.7 36 7 36H8zM2 24.1c-1.2 1.3-2 3-2 4.9s.8 3.6 2 4.9V24.1zM20 16.5c-.6-.2-1.3-.4-2-.5v20h2V16.5zM9 20.9V36h2V18.3C10.2 19 9.5 19.9 9 20.9zM17 16c-.7 0-1.4.1-2 .2V36h2V16z" />
-                            <g>
-                                <path d="M42.5,21c-0.5,0-1,0.1-1.5,0.2C40.5,15.5,35.8,11,30,11c-3.6,0-7,1.8-9,4.7V36h21.5c4.1,0,7.5-3.4,7.5-7.5C50,24.4,46.6,21,42.5,21z" />
-                            </g>
-                        </svg>
-                    </Link>
+                    <div className="flex">
+                        <Link href="https://soundcloud.com/nicmicmusic">
+                            <svg
+                                className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-dark-blue hover:transition hover:ease-in-out"
+                                fill="#FFFFFF"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 50 50"
+                                width="32px"
+                                height="32px"
+                            >
+                                <path d="M3 34.7c.6.399 1.3.8 2 1V22.3c-.7.2-1.4.5-2 1V34.7zM14 16.5c-.7.3-1.4.6-2 1V36h2V16.5zM8 36V22.1C7.7 22 7.3 22 7 22s-.7 0-1 .1v13.8C6.3 36 6.7 36 7 36H8zM2 24.1c-1.2 1.3-2 3-2 4.9s.8 3.6 2 4.9V24.1zM20 16.5c-.6-.2-1.3-.4-2-.5v20h2V16.5zM9 20.9V36h2V18.3C10.2 19 9.5 19.9 9 20.9zM17 16c-.7 0-1.4.1-2 .2V36h2V16z" />
+                                <g>
+                                    <path d="M42.5,21c-0.5,0-1,0.1-1.5,0.2C40.5,15.5,35.8,11,30,11c-3.6,0-7,1.8-9,4.7V36h21.5c4.1,0,7.5-3.4,7.5-7.5C50,24.4,46.6,21,42.5,21z" />
+                                </g>
+                            </svg>
+                        </Link>
+                        <div className="relative right-4">
+                            {renderThemeChanger()}
+                        </div>
+                    </div>
                 </div>
                 <CountdownTimerComponent targetDate={RELEASE_DATE} />
 
-                <div className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 px-4 mt-2 md:mt-20 overflow-auto mb-4">
-                    <SongCard
-                        source="/donotforgetme.png"
-                        alt="looking out an airplane window on the sunset"
-                        description="something"
-                    />
-                    <SongCard
-                        source="/flyingtomoon.png"
-                        alt="silhouette of woman gazing out on the blue and red horizon"
-                        description="hi"
-                    />
-                    <SongCard
-                        source="/whatdoido.png"
-                        alt="silhouette of woman gazing out on the blue and red horizon"
-                        description="hi"
-                    />
-                    <SongCard
-                        source="/andsohaveyou.png"
-                        alt="silhouette of woman gazing out on the blue and red horizon"
-                        description="hi"
-                    />
-                    <SongCard
-                        source="/etude.png"
-                        alt="silhouette of woman gazing out on the blue and red horizon"
-                        description="hi"
+                <div className="w-full h-full max-w-3xl max-h-[48rem] ">
+                    <CardStack cards={cards} />
+                </div>
+
+                <div>
+                    <PayPalButtonNicmic
+                        onSuccess={onPaymentSuccess}
+                        onError={console.error}
                     />
                 </div>
             </main>
-            <footer className="flex items-center justify-center text-center px-8 ht-16 fixed bottom-0 w-full">
-                <div className="flex w-full justify-center">
-                    <img
-                        className=" self-center mr-0 ml-4 md:fixed right-4"
-                        width="44px"
-                        height="44px"
-                        src="./nicmic_text_white.svg"
+            <footer className="flex items-center overflow-hidden justify-center text-center px-8 ht-16 fixed bottom-6 w-full">
+                <div className="flex w-full justify-center items-center">
+                    <Image
+                        className="self-center mr-0 ml-4 md:fixed right-4"
+                        width="44"
+                        height="44"
+                        src="/nicmic_text_white.svg"
+                        alt="nicmic logo"
                     />
-                    {renderThemeChanger()}
+                    <p className="ml-2 mt-2 text-xs opacity-60 text-lavender-pink">
+                        2023
+                    </p>
                 </div>
             </footer>
         </div>
-    );
-};
+    )
+}
 
-export default Home;
+export default Home
