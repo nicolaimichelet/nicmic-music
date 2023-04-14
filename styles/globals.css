@@ -130,6 +130,11 @@
         background: linear-gradient(to right, #000, #111827);
     }
 
+    .active {
+        transform: rotate(0deg) translateX(400%);
+        transition: transform 0.5s;
+    }
+
     @keyframes rotate {
         from {
             rotate: 0deg;

@@ -12,7 +12,6 @@ export default function CustomBlobCursor(systemTheme) {
         if (cursorRef.current == null || cursorRef == null) return
         window.onpointermove = (event) => {
             const { clientX, clientY } = event
-
             blob.animate(
                 {
                     left: `${clientX}px`,

@@ -3,43 +3,64 @@ import SongCard from './SongCard'
 
 const CardStack = ({ cards }) => {
     const [currentCard, setCurrentCard] = useState(0)
+    const [inactiveCards, setInactiveCards] = useState([])
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setCurrentCard((prevCard) => (prevCard + 1) % cards.length)
+            const nextCardIndex = (currentCard + 1) % cards.length
+            setCurrentCard(nextCardIndex)
+            setInactiveCards((prevInactiveCards) => [
+                ...prevInactiveCards,
+                currentCard,
+            ])
+            setTimeout(() => {
+                setInactiveCards((prevInactiveCards) =>
+                    prevInactiveCards.filter((card) => card !== currentCard)
+                )
+            }, 4475)
         }, 5000)
 
         return () => clearInterval(intervalId)
-    }, [cards.length])
-
+    }, [cards.length, currentCard])
     return (
-        <div className="relative">
+        <div className="relative top-8 md:top-24 lg:top-12">
             {cards.map((card, index) => {
                 const getRotationAngle = (index) => {
                     switch (index) {
                         case 0:
-                            return 'rotate(10deg)'
+                            return 8
                         case 1:
-                            return 'rotate(-10deg)'
+                            return -10
                         case 2:
-                            return 'rotate(5deg)'
+                            return 5
                         case 3:
-                            return 'rotate(355deg)'
+                            return -8
                         case 4:
-                            return 'rotate(0)'
+                            return -5
                         default:
-                            return 'rotate(0)'
+                            return 0
                     }
                 }
+                const isActive = index === currentCard
+                const isInactive = inactiveCards.includes(index)
+                const zIndex =
+                    currentCard === index ? cards.length : cards.length - index
+
                 return (
                     <SongCard
                         key={index}
+                        index={index}
                         source={card.source}
                         alt={card.alt}
                         description={card.description}
-                        isActive={index === currentCard}
-                        className={index === currentCard ? 'active' : ''}
-                        style={{ transform: getRotationAngle(index) }} // Apply rotation effect to each card
+                        isActive={isActive}
+                        isInactive={isInactive}
+                        currentCard={currentCard}
+                        className={isActive ? 'active' : ''}
+                        rotation={getRotationAngle(index)}
+                        style={{
+                            zIndex: zIndex,
+                        }} // Apply rotation effect to each card
                     />
                 )
             })}
