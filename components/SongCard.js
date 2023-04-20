@@ -12,18 +12,18 @@ export default function SongCard({
 }) {
     return (
         <div
-            className={`group flex justify-center w-full absolute top-0 left-0 cursor-overflow-hidden  transition-shadow hover:shadow-xl ${
+            className={`group flex justify-center w-full absolute top-0 left-0  ${
                 isActive ? 'z-10' : 'z-0'
             }`}
             style={{
                 transform: `rotate(${isActive ? 0 : rotation}deg) translateX(${
-                    isInactive ? '300%' : '0'
+                    isInactive ? '400%' : '0'
                 })`,
                 transition: 'transform 0.5s ease-in-out',
             }}
         >
             <Image
-                className="w-[16rem] h-[16rem] md:w-[32rem] md:h-[32rem] lg:w-[40rem] lg:h-[40rem] object-contain rounded-lg transition-transform duration-500 group-hover:scale-110 group-hover:opacity-100"
+                className="w-[16rem] h-[16rem] md:w-[24rem] md:h-[24rem] lg:w-[30rem] lg:h-[30rem] object-contain rounded-lg transition-transform duration-500 group-hover:scale-110 group-hover:opacity-100 cursor-overflow-hidden  transition-shadow hover:shadow-xl"
                 src={source}
                 alt={alt}
                 width={3000}

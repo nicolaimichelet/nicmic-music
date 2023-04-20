@@ -135,6 +135,11 @@
         transition: transform 0.5s;
     }
 
+    .inheritedWidth {
+        width: inherit;
+        height: inherit;
+    }
+
     @keyframes rotate {
         from {
             rotate: 0deg;

@@ -23,7 +23,7 @@ const CardStack = ({ cards }) => {
         return () => clearInterval(intervalId)
     }, [cards.length, currentCard])
     return (
-        <div className="relative top-8 md:top-24 lg:top-12">
+        <div className="relative inheritedWidth">
             {cards.map((card, index) => {
                 const getRotationAngle = (index) => {
                     switch (index) {

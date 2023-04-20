@@ -83,6 +83,8 @@ const Home: NextPage = () => {
     }
 
     const handleSuccess = (details: any) => {
+        console.log('Details', details)
+
         const name = details.payer.name.given_name
         alert(`Transaction completed by ${name}`)
     }
@@ -94,7 +96,7 @@ const Home: NextPage = () => {
     console.log('Cards', cards)
 
     return (
-        <div className="overflow-hidden">
+        <div className="light-gradient dark:dark-gradient w-screen min-h-screen">
             <Head>
                 <title>nicmic music</title>
                 <meta
@@ -104,7 +106,8 @@ const Home: NextPage = () => {
                 <link rel="icon" href="nicmic_text_black.svg" />
             </Head>
             <CustomBlobCursor systemTheme />
-            <main className="light-gradient dark:dark-gradient overflow-hidden w-screen h-screen flex flex-col items-center pb-16 justify-center px-4 md:px-20 text-center">
+            <main className="flex flex-col items-center p-8 justify-center md:px-20 text-center">
+                <NicMicLogo twClassName="w-10 mt-8 md:invisible" />
                 <div className="flex mb-8 items-center justify-center text-center z-10">
                     <div className="md:w-[92px] md:h-[92px]"></div>
                     <Link href="https://open.spotify.com/artist/1ahjhkpk4VmdiQ7dNWYLeR">
@@ -131,7 +134,7 @@ const Home: NextPage = () => {
                             <path d="M37,4H13c-4.962,0-9,4.037-9,9v24c0,4.963,4.038,9,9,9h24c4.962,0,9-4.037,9-9V13C46,8.037,41.962,4,37,4z M35,27v4v0.021	h-0.002C34.986,33.768,32.749,36,30,36h-0.5c-0.987,0-1.933-0.42-2.596-1.152c-0.662-0.731-0.985-1.718-0.887-2.705	C26.195,30.38,27.787,29,29.643,29H31c1.103,0,2-0.897,2-2v-9.795l-12,2.25V30v4c0,2.757-2.243,5-5,5h-0.5	c-0.987,0-1.933-0.42-2.596-1.152c-0.662-0.731-0.985-1.718-0.887-2.705C12.195,33.38,13.787,32,15.643,32H17c1.103,0,2-0.897,2-2	V15.353c0-0.963,0.687-1.79,1.633-1.966l12.591-2.36c0.439-0.083,0.891,0.033,1.234,0.319C34.803,11.632,35,12.053,35,12.5V27z" />
                         </svg>
                     </Link>
-                    <NicMicLogo twClassName="w-10 md:w-20 lg:w-36" />
+                    <NicMicLogo twClassName="sm:invisible md:w-20 md:visible lg:w-36" />
                     <Link href="https://www.instagram.com/nicmicmusic/">
                         <svg
                             className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-dark-blue hover:transition hover:ease-in-out"
@@ -182,23 +185,26 @@ const Home: NextPage = () => {
                 </div>
                 <CountdownTimerComponent targetDate={RELEASE_DATE} />
 
-                <div className="w-full h-full max-w-2xl max-h-[42rem]">
+                <div className=" w-[16rem] h-[16rem] md:w-[24rem] md:h-[24rem] lg:w-[30rem] lg:h-[30rem] flex justify-center">
                     <CardStack cards={cards} />
                 </div>
 
-                <div className="md:mt-16 lg:mt-24 xl:mt-32">
+                <div className="p-16">
                     <p className="text-center font-bold font-sans text-3xl mb-4">
                         Buy digital download
                     </p>
+                    <p className="text-sm p-4">
+                        Get a personal high quality WAV file
+                    </p>
                     <PayPalButtonNicmic
-                        amount={10.0}
-                        currencyCode="USD"
+                        amount={50.0}
+                        currencyCode="NOK"
                         onSuccess={handleSuccess}
                         onError={handleError}
                     />
                 </div>
             </main>
-            <footer className="flex items-center overflow-hidden justify-center text-center px-8 ht-16 fixed bottom-6 w-full">
+            <footer className="flex items-center overflow-hidden fixed bottom-0 justify-center text-center p-4 ht-16 w-full">
                 <div className="flex w-full justify-center items-center">
                     <Image
                         className="self-center mr-0 ml-4"
