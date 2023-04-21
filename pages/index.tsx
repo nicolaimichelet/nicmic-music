@@ -194,7 +194,16 @@ const Home: NextPage = () => {
                         Buy digital download
                     </p>
                     <p className="text-sm p-4">
-                        Get a personal high quality WAV file
+                        Experience my music in its purest form with a
+                        high-quality digital download. Each song I create is a
+                        labor of love, and a digital download allows you to hear
+                        every detail and nuance of my music, just as it was
+                        intended. Plus, when you purchase a digital download,
+                        you're directly supporting my artistry and enabling me
+                        to continue creating great music. As a thank you for
+                        your support, I'm offering an exclusive bonus track that
+                        you won't find anywhere else. Join me on this creative
+                        journey and own a piece of my artistry today.
                     </p>
                     <PayPalButtonNicmic
                         amount={50.0}
@@ -204,7 +213,7 @@ const Home: NextPage = () => {
                     />
                 </div>
             </main>
-            <footer className="flex items-center overflow-hidden fixed bottom-0 justify-center text-center p-4 ht-16 w-full">
+            <footer className="flex items-center overflow-hidden bottom-0 justify-center text-center p-4 ht-16 w-full">
                 <div className="flex w-full justify-center items-center">
                     <Image
                         className="self-center mr-0 ml-4"
