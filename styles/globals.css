@@ -4,7 +4,7 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../public/fonts/Montserrat-Regular.ttf');
+    src: url('../public/fonts/Nobile-Regular.ttf');
 }
 
 @layer base {
@@ -143,6 +143,11 @@
     .inheritedWidth {
         width: inherit;
         height: inherit;
+    }
+
+    .active {
+        color: #ffb947;
+        font-weight: 600;
     }
 
     @keyframes rotate {

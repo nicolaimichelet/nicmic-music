@@ -19,7 +19,7 @@ module.exports = {
             'extra-sky-blue': '#63E5FF',
         },
         fontFamily: {
-            montserrat: ['Montserrat', 'sans-serif'],
+            nobile: ['Nobile', 'sans-serif'],
         },
         extend: {},
     },
