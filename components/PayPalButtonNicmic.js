@@ -12,9 +12,16 @@ const PayPalButtonNicmic = ({ amount, currencyCode, onSuccess, onError }) => {
         return <div>Loading...</div>
     }
 
+    const style = {
+        layout: 'vertical',
+        color: 'gold',
+        shape: 'pill',
+    }
+
     return (
-        <PayPalScriptProvider options={{ 'client-id': 'test' }}>
+        <PayPalScriptProvider options={{ 'client-id': 'sb', currency: 'NOK' }}>
             <PayPalButtons
+                style={style}
                 createOrder={(data, actions) => {
                     return actions.order.create({
                         purchase_units: [

@@ -6,19 +6,22 @@ export default function CustomBlobCursor(systemTheme) {
 
     useEffect(() => {
         function handleResize() {
-            const shouldShow = window.innerWidth >= 768
+            const shouldShow = window.innerWidth >= 968
             setShouldShowComponent(shouldShow)
         }
         if (cursorRef.current == null || cursorRef == null) return
+
         window.onpointermove = (event) => {
             const { clientX, clientY } = event
-            blob.animate(
-                {
-                    left: `${clientX}px`,
-                    top: `${clientY}px`,
-                },
-                { duration: 3000, fill: 'forwards' }
-            )
+            if (typeof blob !== 'undefined') {
+                blob.animate(
+                    {
+                        left: `${clientX}px`,
+                        top: `${clientY}px`,
+                    },
+                    { duration: 3000, fill: 'forwards' }
+                )
+            }
         }
         handleResize()
         window.addEventListener('resize', handleResize)

@@ -5,6 +5,19 @@ const CardStack = ({ cards }) => {
     const [currentCard, setCurrentCard] = useState(0)
     const [inactiveCards, setInactiveCards] = useState([])
 
+    const handlePrevious = () => {
+        const previousCardIndex =
+            (currentCard - 1 + cards.length) % cards.length
+        setCurrentCard(previousCardIndex)
+        clearInterval(intervalId)
+    }
+
+    const handleNext = () => {
+        const nextCardIndex = (currentCard + 1) % cards.length
+        setCurrentCard(nextCardIndex)
+        clearInterval(intervalId)
+    }
+
     useEffect(() => {
         const intervalId = setInterval(() => {
             const nextCardIndex = (currentCard + 1) % cards.length
@@ -64,6 +77,8 @@ const CardStack = ({ cards }) => {
                     />
                 )
             })}
+            <button onClick={() => handlePrevious()}>Previous</button>
+            <button onClick={() => handleNext()}>Next</button>
         </div>
     )
 }

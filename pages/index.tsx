@@ -189,7 +189,7 @@ const Home: NextPage = () => {
                     <CardStack cards={cards} />
                 </div>
 
-                <div className="p-16">
+                <div className="p-16 max-w-2xl">
                     <p className="text-center font-bold font-sans text-3xl mb-4">
                         Buy digital download
                     </p>
@@ -205,12 +205,14 @@ const Home: NextPage = () => {
                         you won't find anywhere else. Join me on this creative
                         journey and own a piece of my artistry today.
                     </p>
-                    <PayPalButtonNicmic
-                        amount={50.0}
-                        currencyCode="NOK"
-                        onSuccess={handleSuccess}
-                        onError={handleError}
-                    />
+                    <div className="p-8">
+                        <PayPalButtonNicmic
+                            amount={50.0}
+                            currencyCode="NOK"
+                            onSuccess={handleSuccess}
+                            onError={handleError}
+                        />
+                    </div>
                 </div>
             </main>
             <footer className="flex items-center overflow-hidden bottom-0 justify-center text-center p-4 ht-16 w-full">
