@@ -17,6 +17,8 @@ module.exports = {
             yellow: '#ffb947',
             orange: '#ef8354',
             'extra-sky-blue': '#63E5FF',
+            'text-gray': '#CCCCCC',
+            'mountain-blue': '#4C7B86',
         },
         fontFamily: {
             nobile: ['Nobile', 'sans-serif'],

@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react'
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import Image from 'next/image'
+import CustomBlobCursor from '../components/Cursor'
+import Head from 'next/head'
 
 export default function Layout({ children }) {
     const { systemTheme, theme, setTheme } = useTheme()
@@ -41,6 +43,14 @@ export default function Layout({ children }) {
     }
     return (
         <div className="flex flex-col items-center p-8 md:px-20 text-center light-gradient dark:dark-gradient w-screen min-h-screen">
+            <Head>
+                <title>nicmic music</title>
+                <meta
+                    name="description"
+                    content="The official home page for all things nicmic. Stay up to date on the latest tracks and news."
+                />
+                <link rel="icon" href="nicmic_text_black.svg" />
+            </Head>
             <Image
                 className="self-center"
                 width="284"
@@ -123,10 +133,13 @@ export default function Layout({ children }) {
                 </div>
             </div>
             <Navigation />
+            <CustomBlobCursor systemTheme />
 
             <CountdownTimerComponent targetDate={RELEASE_DATE} />
 
-            <main>{children}</main>
+            <main className="flex flex-col items-center p-8 justify-center md:px-20 text-center">
+                {children}
+            </main>
             <Footer />
         </div>
     )

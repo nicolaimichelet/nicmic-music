@@ -1,11 +1,7 @@
 import type { NextPage } from 'next'
 import dynamic from 'next/dynamic'
-import Head from 'next/head'
-import Link from 'next/link'
-
-import CustomBlobCursor from '../components/Cursor'
 import Layout from '../components/Layout'
-import Image from 'next/image'
+import SongCard from '../components/SongCard'
 
 const Home: NextPage = () => {
     const cards = [
@@ -50,37 +46,14 @@ const Home: NextPage = () => {
 
     return (
         <Layout>
-            <div className="">
-                <Head>
-                    <title>nicmic music</title>
-                    <meta
-                        name="description"
-                        content="The official home page for all things nicmic. Stay up to date on the latest tracks and news."
+            <div className="flex">
+                {cards.map((song) => (
+                    <SongCard
+                        key={song.name}
+                        source={song.source}
+                        alt={song.alt}
                     />
-                    <link rel="icon" href="nicmic_text_black.svg" />
-                </Head>
-                <CustomBlobCursor systemTheme />
-                <main className="flex flex-col items-center p-8 justify-center md:px-20 text-center">
-                    <div className="p-16 max-w-2xl">
-                        <p className="text-center font-bold font-sans text-3xl mb-4">
-                            Buy digital download
-                        </p>
-                        <p className="text-sm p-4">
-                            Experience my music in its purest form with a
-                            high-quality digital download. Each song I create is
-                            a labor of love, and a digital download allows you
-                            to hear every detail and nuance of my music, just as
-                            it was intended. Plus, when you purchase a digital
-                            download, you're directly supporting my artistry and
-                            enabling me to continue creating great music. As a
-                            thank you for your support, I'm offering an
-                            exclusive bonus track that you won't find anywhere
-                            else. Join me on this creative journey and own a
-                            piece of my artistry today.
-                        </p>
-                        <div className="p-8"></div>
-                    </div>
-                </main>
+                ))}
             </div>
         </Layout>
     )

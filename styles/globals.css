@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Montserrat';
+    font-family: 'Nobile';
     src: url('../public/fonts/Nobile-Regular.ttf');
 }
 
@@ -148,6 +148,11 @@
     .active {
         color: #ffb947;
         font-weight: 600;
+    }
+
+    .footer-grid-links p:hover {
+        color: #4c7b86;
+        text-decoration: underline;
     }
 
     @keyframes rotate {

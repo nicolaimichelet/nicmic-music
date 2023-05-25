@@ -9,17 +9,20 @@ export default function Navigation() {
         const className = isActive ? 'active' : ''
 
         return (
-            <Link className={className} href={href}>
+            <Link
+                className={`${className} hover:text-yellow hover:underline`}
+                href={href}
+            >
                 {children}
             </Link>
         )
     }
 
     return (
-        <nav>
+        <nav className="z-10">
             <ul className="flex text-xl justify-evenly w-[348px] ">
                 <li>
-                    <CustomLink href="/">Home</CustomLink>
+                    <CustomLink href="/">Music</CustomLink>
                 </li>
                 <li>
                     <CustomLink href="/about">About</CustomLink>
