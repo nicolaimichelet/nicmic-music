@@ -11,7 +11,9 @@ const Home: NextPage = () => {
 
     return (
         <Layout>
-            <SongSlider />
+            <div className="flex flex-row max-w-full">
+                <SongSlider />
+            </div>
         </Layout>
     )
 }

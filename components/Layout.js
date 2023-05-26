@@ -42,7 +42,7 @@ export default function Layout({ children }) {
         }
     }
     return (
-        <div className="flex flex-col items-center p-8 md:px-20 text-center light-gradient dark:dark-gradient w-screen min-h-screen">
+        <div className="flex flex-col items-center text-center light-gradient dark:dark-gradient w-screen min-h-screen">
             <Head>
                 <title>nicmic music</title>
                 <meta
@@ -137,7 +137,7 @@ export default function Layout({ children }) {
 
             <CountdownTimerComponent targetDate={RELEASE_DATE} />
 
-            <main className="flex flex-col items-center p-8 justify-center md:px-20 text-center">
+            <main className="flex flex-col flex-1 items-center p-8 justify-center md:px-20 text-center">
                 {children}
             </main>
             <Footer />
