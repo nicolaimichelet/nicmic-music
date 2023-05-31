@@ -20,15 +20,13 @@ export default function AboutPage() {
                     more danceable and upbeat while others are inspiring and
                     somber.
                 </p>
-                <div className="rounded-full overflow-hidden w-72 h-72">
-                    <Image
-                        className="object-cover"
-                        width={500}
-                        height={500}
-                        src="/nicmicabove.png"
-                        alt="nicmic smiling"
-                    />
-                </div>
+                <Image
+                    className="object-cover rounded-full overflow-hidden h-fit"
+                    width={300}
+                    height={300}
+                    src="/nicmicabove.png"
+                    alt="nicmic smiling"
+                />
             </div>
         </Layout>
     )

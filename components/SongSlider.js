@@ -1,10 +1,7 @@
+// 'use client'
 import SwiperCore, { Autoplay, Navigation, Pagination, Scrollbar } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SongCard from './SongCard'
-
-// Styles must use direct files imports
-import 'swiper/swiper.css' // core Swiper
-import 'swiper/swiper-bundle.css' // core Swiper
 
 const songs = [
     {
@@ -63,29 +60,7 @@ const songs = [
 ]
 
 const SongSlider = () => {
-    return (
-        <Swiper
-            modules={[Navigation, Pagination, Scrollbar]}
-            spaceBetween={10}
-            slidesPerView={3}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
-        >
-            {songs.map((song, index) => (
-                <SwiperSlide key={index}>
-                    <SongCard
-                        source={song.source}
-                        alt={song.alt}
-                        description={song.description}
-                        spotifyLink={song.spotifyLink}
-                        appleMusicLink={song.appleMusicLink}
-                        buyNowLink={song.buyNowLink}
-                        isActive={song.isActive}
-                    />
-                </SwiperSlide>
-            ))}
-        </Swiper>
-    )
+    return <></>
 }
 
 export default SongSlider

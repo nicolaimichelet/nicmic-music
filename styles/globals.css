@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'swiper/css';
+@import 'swiper/css/bundle';
+
 @font-face {
     font-family: 'Nobile';
     src: url('../public/fonts/Nobile-Regular.ttf');
@@ -159,8 +162,12 @@
         color: gray;
     }
 
-    .activeSongCard {
+    .swiper-slide-active {
         color: white;
+    }
+
+    .swiper-slide {
+        width: auto !important;
     }
 
     @keyframes rotate {
