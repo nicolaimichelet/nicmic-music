@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'swiper/css';
+@import 'swiper/css/bundle';
+
 @font-face {
     font-family: 'Nobile';
     src: url('../public/fonts/Nobile-Regular.ttf');
@@ -153,6 +156,18 @@
     .footer-grid-links p:hover {
         color: #4c7b86;
         text-decoration: underline;
+    }
+
+    .inactive {
+        color: gray;
+    }
+
+    .swiper-slide-active {
+        color: white;
+    }
+
+    .swiper-slide {
+        width: auto !important;
     }
 
     @keyframes rotate {

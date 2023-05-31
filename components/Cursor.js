@@ -30,7 +30,7 @@ export default function CustomBlobCursor(systemTheme) {
 
     return shouldShowComponent ? (
         <div
-            className="blob-background-on-light-theme dark:blob-background-on-dark-theme"
+            className="blob-background-on-light-theme dark:blob-background-on-dark-theme z-0"
             id="blob"
             ref={cursorRef}
         ></div>

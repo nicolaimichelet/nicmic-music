@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <footer className="bg-dark-blue flex items-center overflow-hidden justify-center text-center p-6 ht-16 w-full font-nobile">
             <div className="w-full flex flex-col justify-center items-center">
-                <div className="border-sky-blue border-2 p-4 w-7/12 mb- h-auto lg:min-h-min rounded-lg items-center flex flex-col lg:flex-row justify-evenly">
+                <div className="border-sky-blue border-2 p-4 md:w-7/12 mb- h-auto lg:min-h-min rounded-lg items-center flex flex-col lg:flex-row justify-evenly">
                     <div className="flex flex-col">
                         <h1 className="text-2xl mb-2">nicmic newsletter</h1>
                         <p className="text-base text-text-gray">
@@ -13,18 +13,18 @@ export default function Footer() {
                             you
                         </p>
                     </div>
-                    <div className="m-4">
+                    <div className="m-4 z-10">
                         <input
                             type="email"
                             placeholder="email"
-                            className="bg-pale-blue bg-opacity-0 border-b border-gray-500 focus:outline-none focus:border-blue-500"
+                            className="bg-pale-blue bg-opacity-0 border-b border-gray-500 focus:outline-none focus:border-blue-500 text-sm"
                         />
                     </div>
-                    <button className="bg-yellow h-10 w-52 min-w-[180px] p-1 text-pale-blue font-semibold rounded-lg shadow-sm">
+                    <button className="bg-yellow h-10 w-52 min-w-[180px] p-1 text-pale-blue font-semibold rounded-lg shadow-sm z-10">
                         Get the newsletter
                     </button>
                 </div>
-                <div className="flex w-7/12 justify-between mt-8 mb-4">
+                <div className="flex md:w-7/12 justify-between mt-8 mb-4">
                     <Image
                         className="self-center"
                         width="64"
@@ -32,7 +32,7 @@ export default function Footer() {
                         src="/nicmic_text_white.svg"
                         alt="nicmic logo"
                     />
-                    <div className="footer-grid-links grid grid-rows-3 grid-cols-3 gap-4 text-xs text-text-gray">
+                    <div className="footer-grid-links grid grid-rows-3 grid-cols-3 gap-4 text-xs text-text-gray z-10">
                         <Link href="/">
                             <p>Music</p>
                         </Link>
