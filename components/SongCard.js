@@ -16,19 +16,23 @@ export default function SongCard({
     return (
         <div className="flex flex-col items-center">
             <Image
-                className="w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] object-contain rounded-lg duration-500 group-hover:opacity-100 transition-shadow hover:shadow-xl"
+                className={`${
+                    swiperSlide.isActive ? '' : 'filter grayscale'
+                } shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] object-contain rounded-lg duration-500`}
                 src={source}
                 alt={alt}
                 width={3000}
                 height={3000}
             />
             <div
-                className={`song-card ${
-                    swiperSlide.isActive ? 'activeSongCard' : 'inactive'
+                className={`mt-4 ${
+                    swiperSlide.isActive
+                        ? 'activeSongCard fade-in'
+                        : 'skeleton-text'
                 }`}
             >
                 {swiperSlide.isActive ? (
-                    <div className="w-min flex flex-col m-8">
+                    <div className="w-min flex flex-col m-8 mt-0">
                         <p className="text-xs  min-h-[80px]">{description}</p>
                         <div className="flex justify-evenly items-center m-2">
                             <p className="text-base mr-1">Listen</p>
@@ -65,9 +69,9 @@ export default function SongCard({
                     </div>
                 ) : (
                     <>
-                        <span className="spotify-link skeleton"></span>
-                        <span className="apple-music-link skeleton"></span>
-                        <span className="buy-now-link skeleton"></span>
+                        <span className="skeleton-text w-full"></span>
+                        <span className="skeleton-text w-4/5"></span>
+                        <span className="skeleton-text w-8/12"></span>
                     </>
                 )}
             </div>

@@ -52,7 +52,7 @@ export default function Layout({ children }) {
                 <link rel="icon" href="nicmic_text_black.svg" />
             </Head>
             <Image
-                className="self-center w-40 h-40"
+                className="self-center w-40 h-40 xl:w-64 xl:h-64"
                 width="284"
                 height="284"
                 src="/nicmic_text_white.svg"

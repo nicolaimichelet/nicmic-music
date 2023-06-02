@@ -153,17 +153,35 @@
         font-weight: 600;
     }
 
+    .activeSongCard {
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .fade-in {
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    :global(.swiper-pagination-bullet-active) {
+        background: #ffb947;
+    }
+
     .footer-grid-links p:hover {
         color: #4c7b86;
         text-decoration: underline;
     }
 
-    .inactive {
-        color: gray;
+    .skeleton-text {
+        background-color: #072f40;
+        height: 8px;
+        display: block;
+        width: 100%;
+        border-radius: 8px;
+        margin-bottom: 4px;
     }
 
-    .swiper-slide-active {
-        color: white;
+    .swiper {
+        overflow: visible;
     }
 
     .swiper-slide {

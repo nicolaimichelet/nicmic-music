@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="border-sky-blue border-2 p-4 md:w-7/12 mb- h-auto lg:min-h-min rounded-lg items-center flex flex-col lg:flex-row justify-evenly">
                     <div className="flex flex-col">
                         <h1 className="text-2xl mb-2">nicmic newsletter</h1>
-                        <p className="text-base text-text-gray">
+                        <p className="text-xs lg:text-sm xl:text-base text-text-gray">
                             Exclusive first access and a bonus track just for
                             you
                         </p>
@@ -17,7 +17,7 @@ export default function Footer() {
                         <input
                             type="email"
                             placeholder="email"
-                            className="bg-pale-blue bg-opacity-0 border-b border-gray-500 focus:outline-none focus:border-blue-500 text-sm"
+                            className="bg-pale-blue w-52 min-w-[180px] bg-opacity-0 border-b border-gray-500 focus:outline-none focus:border-blue-500 text-sm"
                         />
                     </div>
                     <button className="bg-yellow h-10 w-52 min-w-[180px] p-1 text-pale-blue font-semibold rounded-lg shadow-sm z-10">
