@@ -11,17 +11,18 @@ export default function AboutPage() {
                     listening to movie soundtracks as I tried to navigate two
                     worlds. I found relief in producing music and playing piano.
                     After watching my mom play the Turkish March by Mozart, I
-                    memorized every note and I didn’t stop until I could play it
-                    myself. I continued watching YouTube tutorials, took piano
-                    lessons and attended classes in music production, sound
-                    engineering and film music. <br></br> <br></br>I draw
+                    memorized every note and I didn&apos;t stop until I could
+                    play it myself. I continued watching YouTube tutorials, took
+                    piano lessons and attended classes in music production,
+                    sound engineering and film music. <br></br> <br></br>I draw
                     inspiration from classical music, soundtracks, Hans Zimmer,
                     OneRepublic, Imagine Dragons and Dua Lipa. We all have our
                     ups and downs and I hope to reflect that in music. Some
                     tracks are more danceable while others are inspiring. My
                     goal is to create cinematic pop music that is infectious,
-                    meaningful, and transports you to new worlds. If you've ever
-                    feel torn between two cultures I hope you find a home here.
+                    meaningful, and transports you to new worlds. If you&apos;ve
+                    ever feel torn between two cultures I hope you find a home
+                    here.
                 </p>
                 <Image
                     className="object-cover rounded-full overflow-hidden h-fit"

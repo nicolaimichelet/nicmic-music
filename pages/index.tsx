@@ -62,7 +62,7 @@ const songs = [
         source: '/etude.png',
         alt: 'text etude pour deux on a white background',
         description:
-            'An `etude` is a short musical composition for typically one instrument. Inspired by the Netflix show Queens Gambit where every move can bring you closer to winning or losing...',
+            'An `etude` is a short musical composition for typically one instrument. Inspired by the Netflix show Queen&apos;s Gambit where every move can bring you closer to winning or losing...',
         spotifyLink:
             'https://open.spotify.com/track/6EijNExo3B6v9VeqFs74bm?si=faeea547222a4bee',
         appleMusicLink:
