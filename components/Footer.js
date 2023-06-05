@@ -9,8 +9,7 @@ export default function Footer() {
                     <div className="flex flex-col">
                         <h1 className="text-2xl mb-2">nicmic newsletter</h1>
                         <p className="text-xs lg:text-sm xl:text-base text-text-gray">
-                            Exclusive first access and a bonus track just for
-                            you
+                            Exclusive first access
                         </p>
                     </div>
                     <div className="m-4 z-10">

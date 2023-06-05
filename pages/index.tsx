@@ -1,10 +1,9 @@
 import type { NextPage } from 'next'
 import dynamic from 'next/dynamic'
+import { Keyboard, Pagination } from 'swiper'
+import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react'
 import Layout from '../components/Layout'
 import SongCard from '../components/SongCard'
-import SongSlider from '../components/SongSlider'
-import SwiperCore, { Navigation, Pagination, Scrollbar, Keyboard } from 'swiper'
-import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react'
 
 const songs = [
     {
@@ -12,7 +11,7 @@ const songs = [
         source: '/flyingtomoon.png',
         alt: 'moon in the horizone and a girl swinging from a large tree',
         description:
-            'A future dystopia where Earth is no longer habitable. Winners are randomly selected to escape earth but they are not allowed to bring anyone with them... Will he leave his wife and child behind to save himself?',
+            'In a future dystopia where Earth is no longer habitable, winners are randomly selected to escape earth but they are not allowed to bring anyone with them... Will he leave his wife and child behind to save himself?',
         spotifyLink:
             'https://open.spotify.com/track/4KJCaLcZXnhyHv0ui0fCmh?si=c587c3c0776445bd',
         appleMusicLink:
@@ -25,7 +24,7 @@ const songs = [
         source: '/whatdoido.png',
         alt: 'silhouette of woman gazing out on the blue and red horizon',
         description:
-            'A beautiful woman captured his heart and he is at a loss of words. What does he do? Can she be contained? ',
+            'A beautiful woman captured his heart and he is at a loss for words. What does he do? Can she be contained? ',
         spotifyLink:
             'https://open.spotify.com/track/4KM75t05g22mltpLgyjjJ2?si=429bc7a1848e4f61',
         appleMusicLink:
@@ -50,7 +49,7 @@ const songs = [
         name: 'and so have you',
         source: '/andsohaveyou.png',
         alt: 'looking out an airplane window on the sunset',
-        description: 'Time moved on and so have you.',
+        description: 'Time moved on and so have you. Nothing more to say here.',
         spotifyLink:
             'https://open.spotify.com/track/357mc6fmgSzo9cHBg53pMd?si=67c09e93d7784dd1',
         appleMusicLink:
@@ -62,7 +61,8 @@ const songs = [
         name: 'etude pour deux',
         source: '/etude.png',
         alt: 'text etude pour deux on a white background',
-        description: 'An etude for two people inspired by the Queens Gambit',
+        description:
+            'An `etude` is a short musical composition for typically one instrument. Inspired by the Netflix show Queens Gambit where every move can bring you closer to winning or losing...',
         spotifyLink:
             'https://open.spotify.com/track/6EijNExo3B6v9VeqFs74bm?si=faeea547222a4bee',
         appleMusicLink:
@@ -87,7 +87,7 @@ const Home: NextPage = () => {
             <div className="flex flex-row max-w-full min-h-[300px] min-w-0">
                 <Swiper
                     slidesPerView={'auto'}
-                    spaceBetween={16}
+                    spaceBetween={32}
                     centeredSlides={true}
                     initialSlide={2}
                     pagination={{

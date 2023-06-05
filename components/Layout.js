@@ -150,7 +150,7 @@ export default function Layout({ children }) {
 
             <CountdownTimerComponent targetDate={RELEASE_DATE} />
 
-            <main className="flex flex-col flex-1 items-center p-8 justify-center md:px-20 text-center">
+            <main className="flex flex-col flex-1 items-center pt-8 pb-8 w-full justify-center text-center">
                 {children}
             </main>
             <Footer />

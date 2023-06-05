@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSwiperSlide } from 'swiper/react'
+import Arrow from '../components/Arrow'
+import { useSwiper, useSwiperSlide } from 'swiper/react'
 
 export default function SongCard({
     source,
@@ -12,27 +13,44 @@ export default function SongCard({
     isActive,
 }) {
     const swiperSlide = useSwiperSlide()
+    const swiper = useSwiper()
 
     return (
         <div className="flex flex-col items-center">
-            <Image
-                className={`${
-                    swiperSlide.isActive ? '' : 'filter grayscale'
-                } shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] object-contain rounded-lg duration-500`}
-                src={source}
-                alt={alt}
-                width={3000}
-                height={3000}
-            />
+            <div className="flex items-center">
+                <button
+                    onClick={() => swiper.slidePrev()}
+                    className={`slide-button ${
+                        swiperSlide.isActive ? '' : 'hidden'
+                    }`}
+                >
+                    <Arrow isLeft={true} />
+                </button>
+                <Image
+                    className={`${
+                        swiperSlide.isActive ? '' : 'filter grayscale'
+                    } shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] object-contain rounded-lg duration-500`}
+                    src={source}
+                    alt={alt}
+                    width={3000}
+                    height={3000}
+                />
+                <button
+                    className={`slide-button ${
+                        swiperSlide.isActive ? '' : 'hidden'
+                    }`}
+                    onClick={() => swiper.slideNext()}
+                >
+                    <Arrow isLeft={false} />
+                </button>
+            </div>
             <div
                 className={`mt-4 ${
-                    swiperSlide.isActive
-                        ? 'activeSongCard fade-in'
-                        : 'skeleton-text'
+                    swiperSlide.isActive ? 'activeSongCard' : 'skeleton-text'
                 }`}
             >
                 {swiperSlide.isActive ? (
-                    <div className="w-min flex flex-col m-8 mt-0">
+                    <div className="w-min flex flex-col m-8 mt-0 fade-in-active-song-card">
                         <p className="text-xs  min-h-[80px]">{description}</p>
                         <div className="flex justify-evenly items-center m-2">
                             <p className="text-base mr-1">Listen</p>

@@ -180,12 +180,36 @@
         margin-bottom: 4px;
     }
 
-    .swiper {
-        overflow: visible;
-    }
-
     .swiper-slide {
         width: auto !important;
+        margin: auto;
+        width: fit-content;
+    }
+
+    .swiper-wrapper {
+        transform: translate3d(103px, 0px, 0px);
+    }
+
+    .svg-class:hover path {
+        stroke: #50c8e8;
+    }
+
+    .fade-in-active-song-card {
+        opacity: 0;
+        animation: fade-in 0.3s ease-in forwards;
+    }
+
+    .slide-button {
+        margin: 8px;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
     @keyframes rotate {
