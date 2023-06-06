@@ -1,7 +1,21 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
+import { subscribeToNewsletter } from './mailchimp'
 
 export default function Footer() {
+    const [email, setEmail] = useState('')
+    const [subscribed, setSubscribed] = useState(false)
+
+    const handleSubscribe = async () => {
+        try {
+            console.log('EMAIL', email)
+            await subscribeToNewsletter(email)
+            setSubscribed(true)
+        } catch (error) {
+            console.error(error)
+        }
+    }
     return (
         <footer className="footer-image bg-no-repeat bg-cover bg-center bg-fixed flex items-center overflow-hidden justify-center text-center p-6 ht-16 w-full font-nobile">
             <div className="w-full flex flex-col justify-center items-center">
@@ -17,12 +31,18 @@ export default function Footer() {
                     <div className="m-4 z-10">
                         <input
                             type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             placeholder="email"
                             className="bg-pale-blue w-52 min-w-[180px] bg-opacity-0 border-b border-gray-500 focus:outline-none focus:border-blue-500 text-sm placeholder-nicmic-white placeholder-opacity-80"
                         />
                     </div>
-                    <button className="bg-nicmic-gold h-10 w-52 min-w-[180px] p-1 text-nicmic-black-blue font-semibold rounded-lg shadow-sm z-10">
-                        Get the newsletter
+                    <button
+                        onClick={handleSubscribe}
+                        disabled={subscribed}
+                        className="bg-nicmic-gold h-10 w-52 min-w-[180px] p-1 text-nicmic-black-blue font-semibold rounded-lg shadow-sm z-10 hover:scale-105"
+                    >
+                        {subscribed ? 'Subscribed!' : 'Get newsletter'}
                     </button>
                 </div>
                 <div className="flex md:w-7/12 justify-between mt-8 mb-4">

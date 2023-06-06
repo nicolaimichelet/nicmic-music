@@ -15,7 +15,6 @@ export default function SongCard({
     const swiper = useSwiper()
 
     setTimeout(() => {
-        console.log(swiper)
         swiper.update()
     }, 150)
 
@@ -83,8 +82,13 @@ export default function SongCard({
                                 </svg>
                             </Link>
                             <a target="_blank" href={buyNowLink}>
-                                <button className="bg-nicmic-gold h-10 w-52 min-w-[40px] max-w-[120px] p-1 text-nicmic-black-blue font-semibold rounded-lg shadow-sm">
-                                    Buy now
+                                <button
+                                    className="bg-nicmic-gold h-10 w-52 min-w-[40px] max-w-[120px] p-1 text-nicmic-black-blue font-semibold rounded-lg shadow-sm hover:scale-105
+                                "
+                                >
+                                    <p className="hover:text-nicmic-black-blue z-10">
+                                        Buy now
+                                    </p>
                                 </button>
                             </a>
                         </div>
