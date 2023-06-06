@@ -10,10 +10,14 @@ export default function SongCard({
     spotifyLink,
     appleMusicLink,
     buyNowLink,
-    isActive,
 }) {
     const swiperSlide = useSwiperSlide()
     const swiper = useSwiper()
+
+    setTimeout(() => {
+        console.log(swiper)
+        swiper.update()
+    }, 150)
 
     return (
         <div className="flex flex-col items-center">
@@ -24,12 +28,12 @@ export default function SongCard({
                         swiperSlide.isActive ? '' : 'hidden'
                     }`}
                 >
-                    <Arrow isLeft={true} />
+                    <Arrow isVisible={!swiper.isBeginning} isLeft={true} />
                 </button>
                 <Image
                     className={`${
                         swiperSlide.isActive ? '' : 'filter grayscale'
-                    } shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] object-contain rounded-lg duration-500`}
+                    } hover:cursor-pointer shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] fit rounded-lg`}
                     src={source}
                     alt={alt}
                     width={3000}
@@ -41,7 +45,7 @@ export default function SongCard({
                     }`}
                     onClick={() => swiper.slideNext()}
                 >
-                    <Arrow isLeft={false} />
+                    <Arrow isVisible={!swiper.isEnd} isLeft={false} />
                 </button>
             </div>
             <div
@@ -50,8 +54,8 @@ export default function SongCard({
                 }`}
             >
                 {swiperSlide.isActive ? (
-                    <div className="w-min flex flex-col m-8 mt-0 fade-in-active-song-card">
-                        <p className="text-xs  min-h-[80px]">{description}</p>
+                    <div className="w-min flex flex-col justify-between m-8 mt-0 fade-in-active-song-card">
+                        <p className="text-sm  min-h-[120px]">{description}</p>
                         <div className="flex justify-evenly items-center m-2">
                             <p className="text-base mr-1">Listen</p>
                             <Link target="_blank" href={spotifyLink}>
@@ -79,7 +83,7 @@ export default function SongCard({
                                 </svg>
                             </Link>
                             <a target="_blank" href={buyNowLink}>
-                                <button className="bg-yellow h-10 w-52 min-w-[40px] max-w-[120px] p-1 text-pale-blue font-semibold rounded-lg shadow-sm">
+                                <button className="bg-nicmic-gold h-10 w-52 min-w-[40px] max-w-[120px] p-1 text-nicmic-black-blue font-semibold rounded-lg shadow-sm">
                                     Buy now
                                 </button>
                             </a>

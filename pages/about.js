@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 export default function AboutPage() {
     return (
         <Layout>
-            <div className=" border-mountain-blue text-left h-auto border-2 pl-12 pt-6 pb-6 pr-12 rounded-lg flex flex-col md:flex-row items-center justify-center bg-gradient-to-b from-blue to-dark-blue bg-opacity-60">
+            <div className=" border-mountain-blue text-left h-auto border-2 pl-12 pt-6 pb-6 pr-12 rounded-lg flex flex-col md:flex-row items-center justify-center bg-gradient-to-b from-mountain-blue to-nicmic-black-blue bg-opacity-60">
                 <p className="max-w-md">
                     I was raised in California and Oslo and this dual experience
                     shaped me and my music. I grew up reading fantasy novels and
@@ -25,7 +25,7 @@ export default function AboutPage() {
                     here.
                 </p>
                 <Image
-                    className="object-cover rounded-full overflow-hidden h-fit"
+                    className="object-cover rounded-full overflow-hidden mt-8 md:mt-0 h-fit"
                     width={300}
                     height={300}
                     src="/nicmicabove.png"

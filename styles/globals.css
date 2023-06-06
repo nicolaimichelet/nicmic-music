@@ -149,7 +149,7 @@
     }
 
     .active {
-        color: #ffb947;
+        color: #192744;
         font-weight: 600;
     }
 
@@ -163,16 +163,16 @@
     }
 
     :global(.swiper-pagination-bullet-active) {
-        background: #ffb947;
+        background-color: #f8cb6e !important;
     }
 
     .footer-grid-links p:hover {
-        color: #4c7b86;
+        color: #f8cb6e;
         text-decoration: underline;
     }
 
     .skeleton-text {
-        background-color: #072f40;
+        background-color: #192744;
         height: 8px;
         display: block;
         width: 100%;
@@ -191,7 +191,7 @@
     }
 
     .svg-class:hover path {
-        stroke: #50c8e8;
+        stroke: #f8cb6e;
     }
 
     .fade-in-active-song-card {
@@ -201,6 +201,15 @@
 
     .slide-button {
         margin: 8px;
+        min-width: 40px;
+    }
+
+    .footer-image {
+        background-image: url('../public/images/nicmic-piano.jpg');
+    }
+
+    .main-image {
+        background-image: url('../public/images/nicmic-piano.jpg');
     }
 
     @keyframes fade-in {
@@ -224,5 +233,11 @@
         to {
             rotate: 360deg;
         }
+    }
+}
+
+@layer components {
+    :root {
+        --swiper-pagination-color: theme(colors.nicmic-gold);
     }
 }

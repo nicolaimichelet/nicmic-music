@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import dynamic from 'next/dynamic'
 import { Keyboard, Pagination } from 'swiper'
-import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import Layout from '../components/Layout'
 import SongCard from '../components/SongCard'
 
@@ -37,7 +37,7 @@ const songs = [
         source: '/donotforgetme.png',
         alt: 'looking out an airplane window on the sunset',
         description:
-            'Lost love and long distance. When Nicolai moved to the US while growing up, it was impossible to not miss his friends and his crush. Not all stories have happy endings.',
+            'Lost love and long distance. When Nicolai moved to the US while growing up, it was impossible to not miss his crush. Not all stories have happy endings.',
         spotifyLink:
             'https://open.spotify.com/track/1aDO0637uCgxQBcfKJNR0w?si=c0e7d99e1053441b',
         appleMusicLink:
@@ -49,7 +49,8 @@ const songs = [
         name: 'and so have you',
         source: '/andsohaveyou.png',
         alt: 'looking out an airplane window on the sunset',
-        description: 'Time moved on and so have you. Nothing more to say here.',
+        description:
+            'Time moved on and so have you... Nothing more to say here.',
         spotifyLink:
             'https://open.spotify.com/track/357mc6fmgSzo9cHBg53pMd?si=67c09e93d7784dd1',
         appleMusicLink:
@@ -61,8 +62,7 @@ const songs = [
         name: 'etude pour deux',
         source: '/etude.png',
         alt: 'text etude pour deux on a white background',
-        description:
-            'An `etude` is a short musical composition for typically one instrument. Inspired by the Netflix show Queen&apos;s Gambit where every move can bring you closer to winning or losing...',
+        description: `An 'etude' is a short musical composition for typically one instrument. Inspired by the Netflix show Queen's Gambit where every move can bring you closer to winning or losing...`,
         spotifyLink:
             'https://open.spotify.com/track/6EijNExo3B6v9VeqFs74bm?si=faeea547222a4bee',
         appleMusicLink:
@@ -73,23 +73,16 @@ const songs = [
 ]
 
 const Home: NextPage = () => {
-    const CountdownTimerComponent = dynamic(
-        () => import('../components/countdownTimer'),
-        { ssr: false }
-    )
-
-    const swiperSlide = useSwiperSlide()
-
-    console.log(swiperSlide)
-
     return (
         <Layout>
             <div className="flex flex-row max-w-full min-h-[300px] min-w-0">
                 <Swiper
                     slidesPerView={'auto'}
                     spaceBetween={32}
+                    updateOnWindowResize={true}
                     centeredSlides={true}
                     initialSlide={2}
+                    slideToClickedSlide={true}
                     pagination={{
                         clickable: true,
                     }}
@@ -111,7 +104,6 @@ const Home: NextPage = () => {
                                 spotifyLink={song.spotifyLink}
                                 appleMusicLink={song.appleMusicLink}
                                 buyNowLink={song.buyNowLink}
-                                isActive={swiperSlide?.isActive}
                             />
                         </SwiperSlide>
                     ))}

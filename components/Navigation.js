@@ -10,7 +10,7 @@ export default function Navigation() {
 
         return (
             <Link
-                className={`${className} hover:text-yellow hover:underline`}
+                className={`${className} hover:text-nicmic-gold hover:underline`}
                 href={href}
             >
                 {children}

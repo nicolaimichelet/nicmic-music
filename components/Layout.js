@@ -1,48 +1,24 @@
-import Navigation from './Navigation'
-import Footer from './Footer'
-import CountdownTimerComponent from './countdownTimer'
-import { useTheme } from 'next-themes'
-import { useState, useEffect } from 'react'
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid'
-import Link from 'next/link'
-import Image from 'next/image'
-import CustomBlobCursor from '../components/Cursor'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useEffect } from 'react'
+import CustomBlobCursor from '../components/Cursor'
+import Footer from './Footer'
+import Navigation from './Navigation'
 
 export default function Layout({ children }) {
-    const { systemTheme, theme, setTheme } = useTheme()
-    const [mounted, setMounted] = useState(false)
+    const CountdownTimerComponent = dynamic(
+        () => import('../components/countdownTimer'),
+        { ssr: false }
+    )
 
-    const RELEASE_DATE = new Date('2022-10-07')
+    const RELEASE_DATE = new Date('2023-06-17')
 
-    useEffect(() => {
-        setMounted(true)
-    }, [])
+    const YEAR = new Date().getFullYear()
 
-    const renderThemeChanger = () => {
-        if (!mounted) return null
-        const currentTheme = theme === 'system' ? systemTheme : theme
-        if (currentTheme === 'dark') {
-            return (
-                <SunIcon
-                    className="w-7 h-7 hover:fill-yellow hover:scale-125"
-                    role="button"
-                    onClick={() => setTheme('light')}
-                />
-            )
-        } else {
-            return (
-                <MoonIcon
-                    className="w-7 h-7 hover:fill-black hover:scale-125"
-                    fill="#FFFFFF"
-                    role="button"
-                    onClick={() => setTheme('dark')}
-                />
-            )
-        }
-    }
     return (
-        <div className="flex flex-col items-center text-center light-gradient dark:dark-gradient w-screen min-h-screen">
+        <div className="flex flex-col items-center text-center main-image bg-no-repeat bg-cover bg-center bg-fixed w-screen min-h-screen">
             <Head>
                 <title>nicmic music</title>
                 <meta
@@ -63,9 +39,10 @@ export default function Layout({ children }) {
                 <Link
                     target="_blank"
                     href="https://open.spotify.com/artist/1ahjhkpk4VmdiQ7dNWYLeR"
+                    title="Spotify"
                 >
                     <svg
-                        className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-dark-blue hover:transition hover:ease-in-out"
+                        className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-nicmic-black-blue hover:transition hover:ease-in-out"
                         fill="#ffffff"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 50 50"
@@ -78,9 +55,10 @@ export default function Layout({ children }) {
                 <Link
                     target="_blank"
                     href="https://music.apple.com/us/artist/nicmic/1479419475"
+                    title="Apple Music"
                 >
                     <svg
-                        className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-dark-blue hover:transition hover:ease-in-out"
+                        className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-nicmic-black-blue hover:transition hover:ease-in-out"
                         fill="#FFFFFF"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 50 50"
@@ -93,9 +71,10 @@ export default function Layout({ children }) {
                 <Link
                     target="_blank"
                     href="https://www.instagram.com/nicmicmusic/"
+                    title="Instagram"
                 >
                     <svg
-                        className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-dark-blue hover:transition hover:ease-in-out"
+                        className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-nicmic-black-blue hover:transition hover:ease-in-out"
                         fill="#FFFFFF"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 25 25"
@@ -111,7 +90,7 @@ export default function Layout({ children }) {
                     title="Youtube"
                 >
                     <svg
-                        className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue hover:transition dark:hover:fill-dark-blue hover:ease-in-out"
+                        className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue hover:transition dark:hover:fill-nicmic-black-blue hover:ease-in-out"
                         fill="#FFFFFF"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 50 50"
@@ -125,9 +104,10 @@ export default function Layout({ children }) {
                     <Link
                         target="_blank"
                         href="https://soundcloud.com/nicmicmusic"
+                        title="Soundcloud"
                     >
                         <svg
-                            className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-dark-blue hover:transition hover:ease-in-out"
+                            className="m-4 cursor-pointer hover:scale-125 hover:fill-extra-sky-blue dark:hover:fill-nicmic-black-blue hover:transition hover:ease-in-out"
                             fill="#FFFFFF"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 50 50"
@@ -140,15 +120,15 @@ export default function Layout({ children }) {
                             </g>
                         </svg>
                     </Link>
-                    <div className="relative right-4">
+                    {/* <div className="relative right-4">
                         {renderThemeChanger()}
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <Navigation />
-            <CustomBlobCursor systemTheme />
+            <CustomBlobCursor />
 
-            <CountdownTimerComponent targetDate={RELEASE_DATE} />
+            {/* <CountdownTimerComponent targetDate={RELEASE_DATE} /> */}
 
             <main className="flex flex-col flex-1 items-center pt-8 pb-8 w-full justify-center text-center">
                 {children}

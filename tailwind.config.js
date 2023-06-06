@@ -18,7 +18,12 @@ module.exports = {
             orange: '#ef8354',
             'extra-sky-blue': '#63E5FF',
             'text-gray': '#CCCCCC',
-            'mountain-blue': '#4C7B86',
+            'mountain-blue': '#6891D3',
+            'nicmic-orange': '#CD6F39',
+            'nicmic-light-blue': '#4BBFD4',
+            'nicmic-black-blue': '#192744',
+            'nicmic-gold': '#F8CB6E',
+            'nicmic-white': '#F4F7FF',
         },
         fontFamily: {
             nobile: ['Nobile', 'sans-serif'],
