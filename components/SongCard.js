@@ -30,7 +30,9 @@ export default function SongCard({
                 </button>
                 <img
                     className={`${
-                        swiperSlide.isActive ? '' : 'filter grayscale'
+                        swiperSlide.isActive
+                            ? 'hover:cursor-default'
+                            : 'filter grayscale'
                     } hover:cursor-pointer hover:filter-none transition ease-in-out duration-300  shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] fit rounded-lg`}
                     src={source}
                     alt={alt}

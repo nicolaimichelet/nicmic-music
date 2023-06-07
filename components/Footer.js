@@ -1,18 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { subscribeToNewsletter } from './mailchimp'
+import axios from 'axios'
 
 export default function Footer() {
     const [email, setEmail] = useState('')
-    // prettier-ignore
     const [error, setError] = useState(null)
 
     const [subscribed, setSubscribed] = useState(false)
 
     const handleSubscribe = async () => {
         const isValidEmail = validateEmail(email)
-        console.log(isValidEmail)
         if (email === '') {
             setError('Please enter a valid email address')
         }
@@ -21,12 +19,14 @@ export default function Footer() {
         }
 
         try {
-            await subscribeToNewsletter(email)
+            await axios.post('/api/mailchimp', { email })
             setSubscribed(true)
-            setError(null)
+            setError('Stay tuned')
         } catch (error) {
             console.error(error)
-            setError('Please enter a valid email address')
+            setError(
+                'Failed to subscribe to the newsletter. Please try again later.'
+            )
         }
     }
 
