@@ -1,14 +1,14 @@
 import type { NextPage } from 'next'
 import dynamic from 'next/dynamic'
 import { Keyboard, Pagination } from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react'
 import Layout from '../components/Layout'
 import SongCard from '../components/SongCard'
 
 const songs = [
     {
         name: 'flying to the moon',
-        source: '/flyingtomoon.png',
+        source: '/flyingtomoon.jpg',
         alt: 'moon in the horizone and a girl swinging from a large tree',
         description:
             'In a future dystopia where Earth is no longer habitable, winners are randomly selected to escape earth but they are not allowed to bring anyone with them... Will he leave his wife and child behind to save himself?',
@@ -21,7 +21,7 @@ const songs = [
     },
     {
         name: 'what do i do',
-        source: '/whatdoido.png',
+        source: '/whatdoido.jpg',
         alt: 'silhouette of woman gazing out on the blue and red horizon',
         description:
             'A beautiful woman captured his heart and he is at a loss for words. What does he do? Can she be contained? ',
@@ -34,7 +34,7 @@ const songs = [
     },
     {
         name: 'dont forget me',
-        source: '/donotforgetme.png',
+        source: '/donotforgetme.jpg',
         alt: 'looking out an airplane window on the sunset',
         description:
             'Lost love and long distance. When Nicolai moved to the US while growing up, it was impossible to not miss his crush. Not all stories have happy endings.',
@@ -47,7 +47,7 @@ const songs = [
     },
     {
         name: 'and so have you',
-        source: '/andsohaveyou.png',
+        source: '/andsohaveyou.jpg',
         alt: 'looking out an airplane window on the sunset',
         description:
             'Time moved on and so have you... Nothing more to say here.',
@@ -60,7 +60,7 @@ const songs = [
     },
     {
         name: 'etude pour deux',
-        source: '/etude.png',
+        source: '/etude.jpg',
         alt: 'text etude pour deux on a white background',
         description: `An 'etude' is a short musical composition for typically one instrument. Inspired by the Netflix show Queen's Gambit where every move can bring you closer to winning or losing...`,
         spotifyLink:

@@ -12,7 +12,7 @@ export async function subscribeToNewsletter(email) {
         //     }
         // )
         console.log('EMail is', email)
-        return result
+        return email
     } catch (error) {
         throw new Error(
             `Failed to subscribe to the newsletter: ${error.message}`

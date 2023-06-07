@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import Arrow from '../components/Arrow'
 import { useSwiper, useSwiperSlide } from 'swiper/react'
@@ -29,10 +28,10 @@ export default function SongCard({
                 >
                     <Arrow isVisible={!swiper.isBeginning} isLeft={true} />
                 </button>
-                <Image
+                <img
                     className={`${
                         swiperSlide.isActive ? '' : 'filter grayscale'
-                    } hover:cursor-pointer shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] fit rounded-lg`}
+                    } hover:cursor-pointer hover:filter-none transition ease-in-out duration-300  shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] fit rounded-lg`}
                     src={source}
                     alt={alt}
                     width={3000}
