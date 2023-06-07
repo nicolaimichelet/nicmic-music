@@ -28,7 +28,7 @@ export default function AboutPage() {
                     className="object-cover rounded-full overflow-hidden mt-8 md:mt-0 h-fit"
                     width={300}
                     height={300}
-                    src="/nicmicabove.png"
+                    src="/nicmicabove.jpg"
                     alt="nicmic smiling"
                 />
             </div>

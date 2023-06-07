@@ -17,7 +17,7 @@ export default function EventPage() {
                     <div className="flex flex-col md:flex-row">
                         <div className="w-48 h-64 flex items-start justify-center donotforgetrelease bg-no-repeat bg-cover bg-center">
                             <p className="text-sm mt-8 m-2 text-center">
-                                Do not forget me <br></br> release party
+                                {`don't forget me`} <br></br> release party
                             </p>
                         </div>
                     </div>

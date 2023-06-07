@@ -190,6 +190,10 @@
         transform: translate3d(103px, 0px, 0px);
     }
 
+    .svg-class path {
+        transition: stroke 0.15s ease-in-out;
+    }
+
     .svg-class:hover path {
         stroke: #f8cb6e;
     }

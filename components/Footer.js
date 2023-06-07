@@ -1,11 +1,55 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 export default function Footer() {
+    const [email, setEmail] = useState('')
+    const [error, setError] = useState(null)
+
+    const [subscribed, setSubscribed] = useState(false)
+
+    const handleSubscribe = async () => {
+        const isValidEmail = validateEmail(email)
+        if (email === '') {
+            setError('Please enter a valid email address')
+        }
+        if (!isValidEmail || email === '') {
+            return
+        }
+
+        try {
+            await axios.post('/api/mailchimp', { email })
+            setSubscribed(true)
+            setError('Stay tuned')
+        } catch (error) {
+            console.error(error)
+            setError(
+                'Failed to subscribe to the newsletter. Please try again later.'
+            )
+        }
+    }
+
+    const validateEmail = (email) => {
+        const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+        const isValid = emailRegex.test(email) || email === ''
+
+        if (!isValid) {
+            setError('Please enter a valid email address')
+        } else {
+            setError('')
+        }
+        return isValid
+    }
+
+    useEffect(() => {
+        validateEmail(email)
+    }, [email])
+
     return (
         <footer className="footer-image bg-no-repeat bg-cover bg-center bg-fixed flex items-center overflow-hidden justify-center text-center p-6 ht-16 w-full font-nobile">
             <div className="w-full flex flex-col justify-center items-center">
-                <div className="border-sky-blue border-2 p-4 md:w-7/12 mb- h-auto lg:min-h-min rounded-lg items-center flex flex-col lg:flex-row justify-evenly">
+                <div className="border-sky-blue border-2 p-4 md:w-5/6 mb- h-auto rounded-lg items-center flex flex-col lg:flex-row justify-evenly lg:min-h-[130px]">
                     <div className="flex flex-col">
                         <h1 className="text-2xl mb-2 text-nicmic-white">
                             nicmic newsletter
@@ -14,15 +58,26 @@ export default function Footer() {
                             Exclusive first access
                         </p>
                     </div>
-                    <div className="m-4 z-10">
+                    <div className="m-4 mb-0 z-10 min-h-[56px]">
                         <input
                             type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             placeholder="email"
-                            className="bg-pale-blue w-52 min-w-[180px] bg-opacity-0 border-b border-gray-500 focus:outline-none focus:border-blue-500 text-sm placeholder-nicmic-white placeholder-opacity-80"
+                            className="bg-pale-blue w-52 min-w-[180px] bg-opacity-0 border-b border-gray-500 focus:outline-none focus:border-blue-500 text-sm placeholder-nicmic-white placeholder-opacity-80 invalid:outline-nicmic-orange invalid:outline invalid:outline-2"
                         />
+                        {error && (
+                            <div className="bg-red-800 pt-2 font-normal text-xs text-nicmic-white">
+                                {error}
+                            </div>
+                        )}
                     </div>
-                    <button className="bg-nicmic-gold h-10 w-52 min-w-[180px] p-1 text-nicmic-black-blue font-semibold rounded-lg shadow-sm z-10">
-                        Get the newsletter
+                    <button
+                        onClick={handleSubscribe}
+                        disabled={subscribed}
+                        className="bg-nicmic-gold h-10 w-52 min-w-[180px] p-1 text-nicmic-black-blue font-semibold rounded-lg shadow-sm z-10 hover:scale-105 disabled:bg-mountain-blue disabled:hover:scale-100"
+                    >
+                        {subscribed ? 'Subscribed!' : 'Get newsletter'}
                     </button>
                 </div>
                 <div className="flex md:w-7/12 justify-between mt-8 mb-4">

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import Arrow from '../components/Arrow'
 import { useSwiper, useSwiperSlide } from 'swiper/react'
@@ -15,7 +14,6 @@ export default function SongCard({
     const swiper = useSwiper()
 
     setTimeout(() => {
-        console.log(swiper)
         swiper.update()
     }, 150)
 
@@ -30,10 +28,12 @@ export default function SongCard({
                 >
                     <Arrow isVisible={!swiper.isBeginning} isLeft={true} />
                 </button>
-                <Image
+                <img
                     className={`${
-                        swiperSlide.isActive ? '' : 'filter grayscale'
-                    } hover:cursor-pointer shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] fit rounded-lg`}
+                        swiperSlide.isActive
+                            ? 'hover:cursor-default'
+                            : 'filter grayscale'
+                    } hover:cursor-pointer hover:filter-none transition ease-in-out duration-300  shadow-md w-[14rem] h-[14rem] md:w-[16rem] md:h-[16rem] lg:w-[18rem] lg:h-[18rem] fit rounded-lg`}
                     src={source}
                     alt={alt}
                     width={3000}
@@ -83,8 +83,13 @@ export default function SongCard({
                                 </svg>
                             </Link>
                             <a target="_blank" href={buyNowLink}>
-                                <button className="bg-nicmic-gold h-10 w-52 min-w-[40px] max-w-[120px] p-1 text-nicmic-black-blue font-semibold rounded-lg shadow-sm">
-                                    Buy now
+                                <button
+                                    className="bg-nicmic-gold h-10 w-52 min-w-[40px] max-w-[120px] p-1 text-nicmic-black-blue font-semibold rounded-lg shadow-sm hover:scale-105
+                                "
+                                >
+                                    <p className="hover:text-nicmic-black-blue z-10">
+                                        Buy now
+                                    </p>
                                 </button>
                             </a>
                         </div>
