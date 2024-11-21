@@ -17,14 +17,15 @@ export default function Portal() {
       },
       { threshold: 0.1 }
     )
+    const currentRef = ref.current;
 
-    if (ref.current) {
-      observer.observe(ref.current)
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])
@@ -36,7 +37,7 @@ export default function Portal() {
         <p className="text-xl text-gray-300 mb-8 text-center">Connect with nicmic</p>
         <div className="text-center text-gray-300 space-y-4">
           <p>
-            Nicmic's journey is far from complete, and he's always eager to connect.
+            Nicmic&apos;s journey is far from complete, and he&apos;s always eager to connect.
           </p>
           <Button 
             variant="secondary" 
