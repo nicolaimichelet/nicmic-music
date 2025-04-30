@@ -34,11 +34,7 @@ export default function Portal() {
     <section className="w-full bg-gray-900 py-16 font-fantasy" ref={ref}>
       <div className={`max-w-4xl mx-auto px-4 transition-opacity duration-1000 ${isVisible ? "'opacity-100'" : "'opacity-0'"}`}>
         <h2 className="text-4xl font-bold text-white mb-2 text-center">Portal</h2>
-        <p className="text-xl text-gray-300 mb-8 text-center">Connect with nicmic</p>
         <div className="text-center text-gray-300 space-y-4">
-          <p>
-            Nicmic&apos;s journey is far from complete, and he&apos;s always eager to connect.
-          </p>
           <Button 
             variant="secondary" 
             className="mt-6 bg-[#43b2d0] text-white hover:bg-[#3a9eb9] transition-all duration-300 shadow-[0_0_15px_rgba(67,178,208,0.5)] hover:shadow-[0_0_20px_rgba(67,178,208,0.7)]"
