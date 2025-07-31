@@ -5,7 +5,7 @@ import Footer from '../components/footer'
 
 export default function Home() {
   return (
-    <div className="font-fantasy">
+    <div className="font-montserrat">
       <section id="home">
         <NicmicMusic />
       </section>

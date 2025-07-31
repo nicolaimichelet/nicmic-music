@@ -1,6 +1,6 @@
 export default function SoundcloudPlayer() {
   return (
-    <section className="w-full bg-gray-900 py-16 font-fantasy">
+    <section className="w-full bg-gray-900 py-16 font-montserrat">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-white mb-2 text-center animate-fade-in">Follow the feeling</h2>
         <p className="text-xl text-gray-300 mb-8 text-center animate-fade-in animation-delay-300"></p>

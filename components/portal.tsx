@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from 'react'
-import { Button } from "@/components/ui/button"
+import Button from "./ui/button"
 
 export default function Portal() {
   const [isVisible, setIsVisible] = useState(false)
@@ -31,7 +31,7 @@ export default function Portal() {
   }, [])
 
   return (
-    <section className="w-full bg-gray-900 py-8 font-fantasy" ref={ref}>
+    <section className="w-full bg-gray-900 py-8 font-montserrat" ref={ref}>
       <div className={`max-w-4xl mx-auto px-4 transition-opacity duration-1000 ${isVisible ? "'opacity-100'" : "'opacity-0'"}`}>
         <div className="text-center text-gray-300 space-y-4">
           <Button 
