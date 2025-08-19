@@ -10,6 +10,12 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
 }
 
 @layer base {

@@ -1,15 +1,16 @@
 "use client"
 import Image from 'next/image'
 import { FaSpotify, FaYoutube, FaInstagram } from 'react-icons/fa';
-import { SiSoundcloud } from 'react-icons/si';
+import { SiSoundcloud, SiSubstack } from 'react-icons/si';
 import { SOCIAL_LINKS, COLORS, SITE_CONFIG } from '../lib/constants';
 import type { SocialIcon } from '../lib/types';
 
 const socialIcons: SocialIcon[] = [
   { name: "Soundcloud", Icon: SiSoundcloud, url: SOCIAL_LINKS.soundcloud },
   { name: "Spotify", Icon: FaSpotify, url: SOCIAL_LINKS.spotify },
-  { name: "Youtube", Icon: FaYoutube, url: SOCIAL_LINKS.youtube },
+  { name: "Substack", Icon: SiSubstack, url: SOCIAL_LINKS.substack },
   { name: "Instagram", Icon: FaInstagram, url: SOCIAL_LINKS.instagram },
+  { name: "Youtube", Icon: FaYoutube, url: SOCIAL_LINKS.youtube },
 ];
 
 export default function NicmicMusic() {
@@ -36,25 +37,25 @@ export default function NicmicMusic() {
           alt="nicmic logo"
           width={300}
           height={100}
-          className="mb-4 animate-fade-in"
+          className="mb-4 animate-fade-in transform translate-x-7"
         />
-        <p className="text-xl font-light mb-8 animate-fade-in animation-delay-300" style={{ color: COLORS.text }}>
-          {SITE_CONFIG.description}
-        </p>
-        <div className="flex space-x-6 mb-8">
-          {socialIcons.map((icon, index) => (
+        
+        <div className="flex space-x-6 mb-8 animate-fade-in animation-delay-300">
+          {socialIcons.map((icon) => (
             <a
               key={icon.name}
               href={icon.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white hover:text-gray-900 transition-all duration-300 animate-fade-in hover:scale-110"
-              style={{ animationDelay: `${(index + 2) * 150}ms` }}
+              className="text-white hover:text-gray-900 transition-all duration-300 hover:scale-110 animate-fade-in"
             >
               <icon.Icon size={30} />
             </a>
           ))}
         </div>
+        <p className="text-xl font-light mb-8 animate-fade-in animation-delay-300" style={{ color: COLORS.text }}>
+          {SITE_CONFIG.description}
+        </p>
       </div>
     </div>
   )

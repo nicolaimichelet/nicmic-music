@@ -2,9 +2,9 @@
 export const SOCIAL_LINKS = {
   soundcloud: "https://soundcloud.com/nicmicmusic",
   spotify: "https://open.spotify.com/artist/1ahjhkpk4VmdiQ7dNWYLeR",
+  substack: "https://nicmicmusic.substack.com",
   youtube: "https://www.youtube.com/c/nicmicmusic",
   instagram: "https://www.instagram.com/nicmicmusic/",
-  substack: "https://nicmic.substack.com", // Future addition
 } as const;
 
 // Color Palette
@@ -19,8 +19,8 @@ export const COLORS = {
 // Site Configuration
 export const SITE_CONFIG = {
   title: "Nicmic Music",
-  description: "Creating music that inspires",
-  logo: "/nicmic_text_white.png",
+  description: "Follow the feeling",
+  logo: "/nicmic_logo_white.png",
   backgroundVideo: "/nicmic.mp4",
   backgroundImage: "/nicmic-piano.jpg",
 } as const;

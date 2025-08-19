@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "Website for nicmic music",
   icons: 
   {
-    icon: '/nicmic_logo_black.png', // Path to your SVG in the public folder
+    icon: '/favicon.svg', // Path to your SVG in the public folder
   },
 
 };
