@@ -32,8 +32,13 @@ const TOKENS: Record<string, { title: string; audio: string }> = {
     },
 };
 
-export default function Page({ params }: { params: { token: string } }) {
-    const spec = TOKENS[params.token];
+export default async function Page({
+    params,
+}: {
+    params: Promise<{ token: string }>;
+}) {
+    const { token } = await params;
+    const spec = TOKENS[token];
     if (!spec) return notFound(); // invalid token → 404
 
     return (
