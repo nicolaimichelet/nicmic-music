@@ -1,19 +1,21 @@
 "use client";
 import Image from "next/image";
-import { FaSpotify, FaYoutube, FaInstagram } from "react-icons/fa";
+import { FaSpotify, FaApple, FaYoutube, FaInstagram } from "react-icons/fa";
 import { SiSoundcloud, SiSubstack } from "react-icons/si";
 import { SOCIAL_LINKS, COLORS, SITE_CONFIG } from "../lib/constants";
 import type { SocialIcon } from "../lib/types";
 
 const socialIcons: SocialIcon[] = [
-    { name: "Soundcloud", Icon: SiSoundcloud, url: SOCIAL_LINKS.soundcloud },
+    // { name: "Soundcloud", Icon: SiSoundcloud, url: SOCIAL_LINKS.soundcloud },
     { name: "Spotify", Icon: FaSpotify, url: SOCIAL_LINKS.spotify },
-    { name: "Substack", Icon: SiSubstack, url: SOCIAL_LINKS.substack },
-    { name: "Instagram", Icon: FaInstagram, url: SOCIAL_LINKS.instagram },
-    { name: "Youtube", Icon: FaYoutube, url: SOCIAL_LINKS.youtube },
+    { name: "Apple Mudic", Icon: FaApple, url: SOCIAL_LINKS.apple },
+
+    // { name: "Substack", Icon: SiSubstack, url: SOCIAL_LINKS.substack },
+    // { name: "Instagram", Icon: FaInstagram, url: SOCIAL_LINKS.instagram },
+    // { name: "Youtube", Icon: FaYoutube, url: SOCIAL_LINKS.youtube },
 ];
 
-export default function NicmicMusic() {
+export default function MainLandingPage() {
     return (
         <div
             className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden font-montserrat"
@@ -45,9 +47,10 @@ export default function NicmicMusic() {
                 <Image
                     src={SITE_CONFIG.logo}
                     alt="nicmic logo"
-                    width={300}
-                    height={100}
+                    width={100}
+                    height={50}
                     className="mb-4 animate-fade-in transform translate-x-7"
+                    style={{ width: "200px", height: "200px" }}
                 />
 
                 <div className="flex space-x-6 mb-8 animate-fade-in animation-delay-300">
