@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { FaSpotify, FaApple, FaYoutube, FaInstagram } from "react-icons/fa";
 import { SiSoundcloud, SiSubstack } from "react-icons/si";
 import { SOCIAL_LINKS, COLORS, SITE_CONFIG } from "../lib/constants";
@@ -8,17 +9,33 @@ import type { SocialIcon } from "../lib/types";
 const socialIcons: SocialIcon[] = [
     // { name: "Soundcloud", Icon: SiSoundcloud, url: SOCIAL_LINKS.soundcloud },
     { name: "Spotify", Icon: FaSpotify, url: SOCIAL_LINKS.spotify },
-    { name: "Apple Mudic", Icon: FaApple, url: SOCIAL_LINKS.apple },
+    { name: "Apple Music", Icon: FaApple, url: SOCIAL_LINKS.apple },
 
     // { name: "Substack", Icon: SiSubstack, url: SOCIAL_LINKS.substack },
     // { name: "Instagram", Icon: FaInstagram, url: SOCIAL_LINKS.instagram },
     // { name: "Youtube", Icon: FaYoutube, url: SOCIAL_LINKS.youtube },
 ];
 
+// Animation variants
+const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.5,
+        },
+    },
+};
+
 export default function MainLandingPage() {
     return (
         <div
-            className="relative min-h-screen flex flex-col items-center justify-center text-white overflow-hidden font-montserrat"
+            className="relative min-h-screen flex flex-col items-center justify-center text-nicmic-text overflow-hidden"
             style={{ backgroundColor: COLORS.background }}
         >
             <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 opacity-50 z-0"></div>
@@ -43,36 +60,62 @@ export default function MainLandingPage() {
                     />
                 </video>
             </div>
-            <div className="z-30 flex flex-col items-center justify-center text-center">
-                <Image
-                    src={SITE_CONFIG.logo}
-                    alt="nicmic logo"
-                    width={100}
-                    height={50}
-                    className="mb-4 animate-fade-in transform translate-x-7"
-                    style={{ width: "200px", height: "200px" }}
-                />
+            <motion.div
+                className="z-30 flex flex-col items-center justify-center text-center"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+            >
+                <motion.div
+                    variants={fadeInUp}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
+                    <Image
+                        src={SITE_CONFIG.logo}
+                        alt="nicmic logo"
+                        width={100}
+                        height={50}
+                        className="transform translate-x-4"
+                        style={{ width: "200px", height: "200px" }}
+                    />
+                </motion.div>
 
-                <div className="flex space-x-6 mb-8 animate-fade-in animation-delay-300">
+                <motion.h1
+                    className="text-xl font-light mb-2 text-center w-full"
+                    variants={fadeInUp}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    style={{ color: COLORS.text }}
+                >
+                    {SITE_CONFIG.description}
+                </motion.h1>
+
+                <motion.div
+                    className="flex space-x-6"
+                    variants={fadeInUp}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                >
                     {socialIcons.map((icon) => (
                         <a
                             key={icon.name}
                             href={icon.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-white hover:text-gray-900 transition-all duration-300 hover:scale-110 animate-fade-in"
+                            className={`transition-all duration-300 hover:scale-110 ${
+                                icon.name === "Spotify" ||
+                                icon.name === "Apple Music"
+                                    ? "text-nicmic-text hover:text-nicmic-orange-hover"
+                                    : "text-nicmic-text"
+                            } ${
+                                icon.name === "Spotify" ? "translate-y-1" : ""
+                            }`}
                         >
-                            <icon.Icon size={30} />
+                            <icon.Icon
+                                size={icon.name === "Spotify" ? 28 : 30}
+                            />
                         </a>
                     ))}
-                </div>
-                <h1
-                    className="text-xl font-light mb-8 animate-fade-in animation-delay-300"
-                    style={{ color: COLORS.text }}
-                >
-                    {SITE_CONFIG.description}
-                </h1>
-            </div>
+                </motion.div>
+            </motion.div>
         </div>
     );
 }

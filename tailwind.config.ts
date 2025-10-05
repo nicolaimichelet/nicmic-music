@@ -12,6 +12,8 @@ const config: Config = {
             colors: {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
+                "nicmic-text": "#eef5fcff",
+                "nicmic-orange-hover": "#d06d36",
             },
             borderRadius: {
                 lg: "var(--radius)",
@@ -20,6 +22,7 @@ const config: Config = {
             },
             fontFamily: {
                 title: ["var(--font-title)", "cursive"],
+                subtitle: ["var(--font-subtitle)", "cursive"],
                 body: ["var(--font-body)", "serif"],
             },
             keyframes: {

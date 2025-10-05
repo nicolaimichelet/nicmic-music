@@ -14,14 +14,14 @@ export const COLORS = {
     secondary: "#8b5cf6", // Purple
     accent: "#f59e0b", // Amber
     background: "#1f2937", // Dark blue-gray
-    text: "#f3f4f6", // Light gray
+    text: "#eef5fcff", // Nicmic text color
 } as const;
 
 // Site Configuration
 export const SITE_CONFIG = {
     title: "Nicmic Music",
     description: "Follow the feeling",
-    logo: "/nicmic_logo_white.png",
+    logo: "/nicmic%20light%20logo.png",
     backgroundVideo: "/nicmic.mp4",
     backgroundImage: "/nicmic-piano.jpg",
 } as const;

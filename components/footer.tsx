@@ -10,12 +10,12 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-gray-900 text-white py-8 font-montserrat">
+        <footer className="bg-gray-900 text-nicmic-text py-8">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-center">
                     <div className="mb-4 md:mb-0">
                         <Image
-                            src="/nicmic_logo_white.png"
+                            src="/nicmic light logo.png"
                             alt="nicmic logo"
                             width={60}
                             height={60}
@@ -24,7 +24,7 @@ export default function Footer() {
                     <nav className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
                         <button
                             onClick={() => scrollToSection("home")}
-                            className="hover:text-[#3ec5e3] transition-colors duration-300"
+                            className="hover:text-nicmic-orange-hover transition-colors duration-300 font-subtitle"
                         >
                             Home
                         </button>
@@ -33,7 +33,7 @@ export default function Footer() {
                     </nav>
                 </div>
                 {/* Centered text below logo/nav */}
-                <div className="mt-6 text-center text-sm tracking-wide">
+                <div className="mt-6 text-center text-sm tracking-wide font-subtitle">
                     nicmic © 2025
                 </div>
             </div>

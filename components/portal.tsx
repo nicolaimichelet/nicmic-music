@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FaInstagram, FaRegCopy } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 
 export default function Portal() {
     const [isVisible, setIsVisible] = useState(false);
@@ -50,7 +51,7 @@ export default function Portal() {
     };
 
     return (
-        <section className="w-full bg-gray-900 py-12 font-montserrat" ref={ref}>
+        <section className="w-full bg-gray-900 py-12 font-subtitle" ref={ref}>
             <div
                 className={`max-w-4xl mx-auto px-4 transition-opacity duration-1000 ${
                     isVisible ? "opacity-100" : "opacity-0"
@@ -61,21 +62,23 @@ export default function Portal() {
                         href="https://www.instagram.com/nicmicmusic/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 hover:text-white transition-colors duration-200"
+                        className="flex items-center gap-2 hover:text-nicmic-orange-hover transition-colors duration-200"
                         aria-label="Visit Instagram profile"
                     >
                         <FaInstagram size={28} />
-                        <span>@nicmicmusic</span>
+                        <span className="font-subtitle">@nicmicmusic</span>
                     </a>
                     <button
                         type="button"
                         onClick={handleCopyEmail}
-                        className="flex items-center gap-2 hover:text-white transition-colors duration-200"
+                        className="flex items-center gap-2 hover:text-nicmic-orange-hover transition-colors duration-200"
                         aria-live="polite"
                         aria-label="Copy email address"
                     >
-                        <FaRegCopy size={24} />
-                        <span>{copied ? "Email copied!" : "Contact"}</span>
+                        <HiOutlineMail size={24} />
+                        <span className="font-subtitle">
+                            {copied ? "Email copied." : "Email"}
+                        </span>
                     </button>
                 </div>
             </div>

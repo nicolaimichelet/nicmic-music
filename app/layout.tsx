@@ -8,6 +8,12 @@ const titleFont = Marck_Script({
     variable: "--font-title",
 });
 
+const subtitleFont = Marck_Script({
+    weight: "400",
+    subsets: ["latin"],
+    variable: "--font-subtitle",
+});
+
 const bodyFont = Crimson_Pro({
     subsets: ["latin"],
     variable: "--font-body",
@@ -17,7 +23,7 @@ export const metadata: Metadata = {
     title: "Nicmic music",
     description: "Website for nicmic music",
     icons: {
-        icon: "/favicon.svg", // Path to your SVG in the public folder
+        icon: "/favicon.ico", // Path to your SVG in the public folder
     },
 };
 
@@ -29,7 +35,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${titleFont.variable} ${bodyFont.variable} antialiased font-body`}
+                className={`${titleFont.variable} ${subtitleFont.variable} ${bodyFont.variable} antialiased font-body`}
             >
                 {children}
                 <script
