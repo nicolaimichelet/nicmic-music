@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Marck_Script, Crimson_Pro } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const titleFont = Marck_Script({
@@ -38,6 +39,7 @@ export default function RootLayout({
                 className={`${titleFont.variable} ${subtitleFont.variable} ${bodyFont.variable} antialiased font-body`}
             >
                 {children}
+                <Analytics />
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
