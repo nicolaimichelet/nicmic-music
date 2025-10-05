@@ -73,10 +73,9 @@ export default function MainLandingPage() {
                     <Image
                         src={SITE_CONFIG.logo}
                         alt="nicmic logo"
-                        width={100}
-                        height={50}
+                        width={200}
+                        height={200}
                         className="transform translate-x-4"
-                        style={{ width: "200px", height: "200px" }}
                     />
                 </motion.div>
 
