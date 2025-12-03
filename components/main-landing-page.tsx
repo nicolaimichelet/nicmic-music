@@ -5,6 +5,7 @@ import { FaSpotify, FaApple, FaYoutube, FaInstagram } from "react-icons/fa";
 import { SiSoundcloud, SiSubstack } from "react-icons/si";
 import { SOCIAL_LINKS, COLORS, SITE_CONFIG } from "../lib/constants";
 import type { SocialIcon } from "../lib/types";
+import ShopButton from "./ShopButton";
 
 const socialIcons: SocialIcon[] = [
     // { name: "Soundcloud", Icon: SiSoundcloud, url: SOCIAL_LINKS.soundcloud },
@@ -89,7 +90,14 @@ export default function MainLandingPage() {
                 </motion.h1>
 
                 <motion.div
-                    className="flex space-x-6"
+                    variants={fadeInUp}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="mt-8"
+                >
+                    <ShopButton />
+                </motion.div>
+                <motion.div
+                    className="flex space-x-6 mt-8"
                     variants={fadeInUp}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
