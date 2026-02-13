@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import AudioPlayer from "@/components/AudioPlayer";
 
 const TOKENS: Record<string, { title: string; audio: string }> = {
     "1-l3k9q2z": {
@@ -47,7 +46,18 @@ export default async function Page({
             <h1 className="text-xl font-semibold mb-4 text-white font-title">
                 {spec.title}
             </h1>
-            <AudioPlayer src={spec.audio} title="Listen" />
+            <div>
+                <h2 className="text-lg font-medium mb-2 text-white font-body">
+                    Listen
+                </h2>
+                <audio
+                    controls
+                    controlsList="nodownload"
+                    preload="none"
+                    src={spec.audio}
+                    className="w-full"
+                />
+            </div>
             {/* Put the day's short story/challenge text here */}
             {/* For Day 7, place your Typeform embed below the player */}
         </main>

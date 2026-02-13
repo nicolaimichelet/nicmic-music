@@ -2,9 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Body defaults to font-body from Tailwind */
+html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #5a94b8 #090e18;
+}
+
+/* Webkit scrollbar */
+html::-webkit-scrollbar {
+    width: 8px;
+}
+html::-webkit-scrollbar-track {
+    background: #090e18;
+}
+html::-webkit-scrollbar-thumb {
+    background: #5a94b8;
+    border-radius: 4px;
+}
+
 body {
     @apply font-body;
+    background-color: #0d1320;
 }
 
 @layer utilities {
@@ -40,4 +58,76 @@ body {
     button {
         @apply font-body;
     }
+}
+
+@keyframes star-pulse {
+    0%,
+    100% {
+        opacity: 0.05;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes starBreath {
+    0%,
+    100% {
+        opacity: 0.03;
+        transform: scale(1);
+    }
+    50% {
+        opacity: var(--star-max, 0.2);
+        transform: scale(1.4);
+    }
+}
+
+@keyframes snowfall {
+    0% {
+        opacity: 0;
+        transform: translateX(0) translateY(-20px);
+    }
+    5% {
+        opacity: var(--snow-opacity);
+    }
+    90% {
+        opacity: var(--snow-opacity);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(var(--snow-drift)) translateY(100vh);
+    }
+}
+
+@keyframes mistDrift {
+    0% {
+        transform: translateX(-5%) translateY(0);
+    }
+    100% {
+        transform: translateX(5%) translateY(-2%);
+    }
+}
+
+@keyframes scrollPulse {
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scaleY(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scaleY(1.2);
+    }
+}
+
+.animate-snowfall {
+    animation: snowfall linear infinite;
+}
+
+.animate-mist-drift {
+    animation: mistDrift 25s ease-in-out infinite alternate;
+}
+
+.animate-scroll-pulse {
+    animation: scrollPulse 2.5s ease-in-out infinite;
 }

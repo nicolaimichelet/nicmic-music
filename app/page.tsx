@@ -1,20 +1,14 @@
 import MainLandingPage from "../components/main-landing-page";
-import Portfolio from "../components/portfolio";
-import Portal from "../components/portal";
 import Footer from "../components/footer";
+import Snow from "../components/Snow";
+import AmbientGlow from "../components/AmbientGlow";
 
 export default function Home() {
     return (
-        <div className="font-montserrat">
-            <section id="home">
-                <MainLandingPage />
-            </section>
-            {/* <section id="music">
-                <Portfolio />
-            </section> */}
-            <section id="portal">
-                <Portal />
-            </section>
+        <div className="min-h-screen bg-background">
+            <AmbientGlow />
+            <Snow />
+            <MainLandingPage />
             <Footer />
         </div>
     );

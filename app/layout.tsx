@@ -16,6 +16,8 @@ const subtitleFont = Marck_Script({
 });
 
 const bodyFont = Crimson_Pro({
+    weight: ["300", "400"],
+    style: ["normal", "italic"],
     subsets: ["latin"],
     variable: "--font-body",
 });

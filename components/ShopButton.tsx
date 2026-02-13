@@ -1,34 +1,19 @@
 import Link from "next/link";
+import { SOCIAL_LINKS } from "../lib/constants";
 
-export default function ShopButton() {
+type ShopButtonProps = {
+    className?: string;
+};
+
+export default function ShopButton({ className = "" }: ShopButtonProps) {
     return (
         <Link
-            href="https://nicmic-music.myshopify.com/"
+            href={SOCIAL_LINKS.shop}
             target="_blank"
             rel="noopener noreferrer"
-            className="
-                inline-flex items-center justify-center
-                px-8 py-3
-                border border-nicmic-text/80
-                text-lg font-title tracking-wide
-                text-nicmic-text
-                rounded-md
-                bg-white/10
-                backdrop-blur-xs
-                shadow-sm
-                transition-all
-                duration-200
-                ease-out
-                hover:-translate-y-0.5
-                hover:scale-[1.03]
-                hover:shadow-lg
-                hover:bg-white/40
-                hover:text-[#111827]
-                active:translate-y-0
-                active:scale-100
-            "
+            className={`text-[11px] uppercase tracking-[3px] text-textMuted no-underline opacity-40 transition-opacity duration-500 transition-colors hover:opacity-80 hover:text-accent ${className}`}
         >
-            Enter Shop
+            Shop
         </Link>
     );
 }

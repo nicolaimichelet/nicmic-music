@@ -3,18 +3,22 @@ export const SOCIAL_LINKS = {
     soundcloud: "https://soundcloud.com/nicmicmusic",
     spotify: "https://open.spotify.com/artist/1ahjhkpk4VmdiQ7dNWYLeR",
     apple: "https://music.apple.com/us/artist/nicmic/1479419475",
-    substack: "https://nicmicmusic.substack.com",
     youtube: "https://www.youtube.com/c/nicmicmusic",
     instagram: "https://www.instagram.com/nicmicmusic/",
+    shop: "https://nicmic-music.myshopify.com/",
 } as const;
 
-// Color Palette
+// Color Palette — Midnight Frost
 export const COLORS = {
-    primary: "#3b82f6", // Blue
-    secondary: "#8b5cf6", // Purple
-    accent: "#f59e0b", // Amber
-    background: "#1f2937", // Dark blue-gray
-    text: "#eef5fcff", // Nicmic text color
+    background: "#0d1320",
+    backgroundDeep: "#090e18",
+    text: "#d4dfe9",
+    textMuted: "#6889a8",
+    accent: "#8ec2e8",
+    accentDim: "#5a94b8",
+    border: "rgba(142, 194, 232, 0.07)",
+    glow: "rgba(142, 194, 232, 0.10)",
+    warm: "#c4956a",
 } as const;
 
 // Site Configuration
@@ -26,7 +30,7 @@ export const SITE_CONFIG = {
     backgroundImage: "/nicmic-piano.jpg",
 } as const;
 
-// Audio Player Configuration
+// Audio Player Configuration (kept for potential future use)
 export const AUDIO_CONFIG = {
     defaultVolume: 0.7,
     autoplay: false,
