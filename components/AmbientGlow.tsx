@@ -2,7 +2,13 @@
 
 import { useEffect, useState, useRef } from "react";
 
-export default function AmbientGlow() {
+type Mode = "music" | "work";
+
+type AmbientGlowProps = {
+    mode?: Mode;
+};
+
+export default function AmbientGlow({ mode = "music" }: AmbientGlowProps) {
     const [pos, setPos] = useState({ x: 0, y: 0 });
     const [visible, setVisible] = useState(false);
     const raf = useRef<number>(0);
@@ -45,6 +51,11 @@ export default function AmbientGlow() {
 
     if (!visible) return null;
 
+    const background =
+        mode === "work"
+            ? "radial-gradient(circle, rgba(212,169,106,0.022) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(142,194,232,0.015) 0%, transparent 70%)";
+
     return (
         <div
             className="fixed rounded-full pointer-events-none z-[1] transition-[left,top] duration-[1500ms] ease-out"
@@ -54,8 +65,7 @@ export default function AmbientGlow() {
                 left: pos.x,
                 top: pos.y,
                 transform: "translate(-50%, -50%)",
-                background:
-                    "radial-gradient(circle, rgba(142,194,232,0.015) 0%, transparent 70%)",
+                background,
             }}
             aria-hidden
         />

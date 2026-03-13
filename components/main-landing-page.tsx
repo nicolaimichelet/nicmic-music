@@ -29,7 +29,7 @@ const chapters: { name: string; mood: ChapterMood }[] = [
     { name: "In the Pines", mood: "danger" },
     { name: "Don't Forget Me", mood: "longing" },
     { name: "Beyond the Mist", mood: "beauty" },
-    { name: "Aurora", mood: "triumph" },
+    { name: "Spirit", mood: "triumph" },
 ];
 
 export default function MainLandingPage() {
